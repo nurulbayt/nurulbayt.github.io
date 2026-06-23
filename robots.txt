@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://subkuch443786.github.io/nurulbayt/sitemap.xml
