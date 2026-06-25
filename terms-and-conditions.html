@@ -1,7 +1,202 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms and Conditions | NurulBayt</title>
-</head><body><h1>Terms and Conditions</h1><p>By using NurulBayt, you agree to follow our terms and conditions.</p><p>All content on this website is intended for informational and educational purposes.</p><p>Unauthorized copying or reproduction of content is prohibited.</p><p>We reserve the right to modify these terms at any time.</p></body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions — NurulBayt</title>
+    <meta name="description" content="NurulBayt Terms and Conditions — the rules and guidelines for using our Islamic parenting website.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark-mode");}</script>
+    <style>
+        .page-hero { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-primary) 100%); padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden; }
+        .page-hero-label { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; }
+        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: white; margin-bottom: 18px; }
+        .page-hero h1 span { color: var(--gold); }
+        .page-hero p { color: rgba(255,255,255,.7); font-size: .95rem; max-width: 500px; margin: auto; line-height: 1.8; }
+        .legal-section { padding: 80px 0; }
+        .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 60px; align-items: start; }
+        .legal-nav { position: sticky; top: 100px; padding: 28px; border-radius: var(--radius); border: 1px solid var(--card-border); background: var(--card-bg); }
+        .legal-nav h4 { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+        .legal-nav ul { list-style: none; }
+        .legal-nav li { margin-bottom: 10px; }
+        .legal-nav a { color: var(--gray); font-size: .88rem; transition: var(--transition); display: block; padding: 4px 0 4px 10px; border-left: 2px solid transparent; }
+        .legal-nav a:hover { color: var(--gold); border-left-color: var(--gold); padding-left: 14px; }
+        .legal-content { max-width: 740px; }
+        .legal-updated { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 100px; background: rgba(212,175,55,.1); border: 1px solid rgba(212,175,55,.2); color: var(--gold); font-size: .82rem; font-weight: 600; margin-bottom: 40px; }
+        .legal-block { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--card-border); }
+        .legal-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .legal-block h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .legal-block p { color: var(--gray); line-height: 1.9; margin-bottom: 14px; font-size: .96rem; }
+        .legal-block p:last-child { margin-bottom: 0; }
+        .legal-highlight { padding: 20px 24px; border-radius: var(--radius-sm); background: rgba(212,175,55,.07); border-left: 4px solid var(--gold); margin: 20px 0; }
+        .legal-highlight p { color: var(--text-secondary); font-size: .92rem; margin: 0; }
+        .legal-block ul { list-style: none; padding: 0; }
+        .legal-block ul li { color: var(--gray); padding: 8px 0 8px 24px; position: relative; font-size: .95rem; line-height: 1.7; border-bottom: 1px solid var(--card-border); }
+        .legal-block ul li:last-child { border-bottom: none; }
+        .legal-block ul li::before { content: "→"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+        @media(max-width:768px) { .legal-layout { grid-template-columns: 1fr; } .legal-nav { position: static; } .page-hero h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">🕌 <span>NurulBayt</span></a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#articles">Articles</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="contact-us.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <button id="darkModeBtn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="container">
+        <p class="page-hero-label">Legal</p>
+        <h1>Terms & <span>Conditions</span></h1>
+        <p>Please read these terms carefully before using NurulBayt. By using our website, you agree to these terms.</p>
+    </div>
+</section>
+
+<section class="legal-section">
+    <div class="container">
+        <div class="legal-layout">
+            <nav class="legal-nav reveal">
+                <h4>Contents</h4>
+                <ul>
+                    <li><a href="#acceptance">Acceptance</a></li>
+                    <li><a href="#use">Use of Website</a></li>
+                    <li><a href="#content">Our Content</a></li>
+                    <li><a href="#intellectual">Intellectual Property</a></li>
+                    <li><a href="#userconduct">User Conduct</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#advertising">Advertising</a></li>
+                    <li><a href="#termination">Termination</a></li>
+                    <li><a href="#changes">Changes</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="legal-content reveal">
+                <div class="legal-updated">📅 Last Updated: June 2026</div>
+
+                <div class="legal-block" id="acceptance">
+                    <h2>📋 Acceptance of Terms</h2>
+                    <p>By accessing and using NurulBayt (<strong>subkuch443786.github.io/nurulbayt</strong>), you confirm that you have read, understood, and agree to be bound by these Terms and Conditions.</p>
+                    <p>If you do not agree with any part of these terms, please discontinue use of our website.</p>
+                    <div class="legal-highlight">
+                        <p>🕌 NurulBayt is provided as a free Islamic parenting resource. These terms exist to protect both our community and the integrity of our content.</p>
+                    </div>
+                </div>
+
+                <div class="legal-block" id="use">
+                    <h2>🌐 Use of Website</h2>
+                    <p>You may use NurulBayt for lawful, personal, and non-commercial purposes only. You agree to:</p>
+                    <ul>
+                        <li>Use the website only for its intended purpose as an Islamic parenting resource</li>
+                        <li>Not attempt to disrupt, hack, or interfere with the website</li>
+                        <li>Not use automated tools to scrape or copy content in bulk</li>
+                        <li>Not impersonate NurulBayt or its team in any form</li>
+                        <li>Respect the Islamic values and principles that guide this website</li>
+                    </ul>
+                </div>
+
+                <div class="legal-block" id="content">
+                    <h2>📖 Our Content</h2>
+                    <p>All articles, guides, and resources on NurulBayt are provided for general educational purposes. Our content:</p>
+                    <ul>
+                        <li>Is based on the Quran and Sunnah to the best of our ability</li>
+                        <li>Does not constitute fatwa or binding religious rulings</li>
+                        <li>Does not constitute professional medical, legal, or financial advice</li>
+                        <li>May be updated or revised at any time without notice</li>
+                    </ul>
+                    <p>We strive for accuracy but cannot guarantee all content is error-free. See our <a href="disclaimer.html" style="color:var(--gold);">Disclaimer</a> for full details.</p>
+                </div>
+
+                <div class="legal-block" id="intellectual">
+                    <h2>©️ Intellectual Property</h2>
+                    <p>All original content on NurulBayt — including articles, text, design, and layout — is the intellectual property of NurulBayt and is protected by copyright law.</p>
+                    <p>You are welcome to:</p>
+                    <ul>
+                        <li>Share links to our articles on social media or with family and friends</li>
+                        <li>Quote short passages with proper credit and a link back to NurulBayt</li>
+                        <li>Print articles for personal, non-commercial use</li>
+                    </ul>
+                    <p>You may NOT reproduce, republish, or distribute our full articles without written permission. To request permission, contact us at <a href="mailto:contact@nurulbayt.com" style="color:var(--gold);">contact@nurulbayt.com</a>.</p>
+                </div>
+
+                <div class="legal-block" id="userconduct">
+                    <h2>🤝 User Conduct</h2>
+                    <p>NurulBayt is an Islamic parenting community space. All users are expected to interact with our content and team with respect, honesty, and good manners — as taught by the Prophet ﷺ.</p>
+                    <p>Any communication that is abusive, dishonest, spammy, or contrary to Islamic values will be disregarded and the sender may be blocked from future communication.</p>
+                </div>
+
+                <div class="legal-block" id="newsletter">
+                    <h2>📧 Newsletter</h2>
+                    <p>If you subscribe to our newsletter, you agree to receive periodic emails from NurulBayt containing Islamic parenting tips and updates.</p>
+                    <ul>
+                        <li>You may unsubscribe at any time via the unsubscribe link in any email</li>
+                        <li>We will never sell or share your email with third parties</li>
+                        <li>We send emails only occasionally — we respect your inbox</li>
+                    </ul>
+                </div>
+
+                <div class="legal-block" id="advertising">
+                    <h2>📢 Advertising</h2>
+                    <p>NurulBayt may display advertisements via Google AdSense. These ads are served automatically based on content and user behaviour and do not represent endorsements by NurulBayt.</p>
+                    <p>We are not responsible for the content of advertisements displayed on our website. If you encounter an inappropriate ad, please contact us so we can report it.</p>
+                </div>
+
+                <div class="legal-block" id="termination">
+                    <h2>🚫 Termination</h2>
+                    <p>We reserve the right to restrict or terminate access to NurulBayt for any user who violates these Terms and Conditions or engages in conduct harmful to our community.</p>
+                </div>
+
+                <div class="legal-block" id="changes">
+                    <h2>🔄 Changes to Terms</h2>
+                    <p>We may update these Terms and Conditions at any time. Changes will be reflected by updating the "Last Updated" date at the top of this page.</p>
+                    <p>Continued use of NurulBayt after any changes constitutes your acceptance of the updated terms.</p>
+                </div>
+
+                <div class="legal-block" id="contact">
+                    <h2>📧 Contact Us</h2>
+                    <p>For any questions about these Terms and Conditions, please reach out:</p>
+                    <p style="text-align:center;margin-top:20px;">
+                        <a href="contact-us.html" class="btn-primary">Contact Us →</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3 class="logo" style="font-size:2rem;">🕌 <span>NurulBayt</span></h3>
+                <p style="color:rgba(255,255,255,.7);line-height:1.8;">Helping Muslim families raise righteous children through Quran and Sunnah based guidance.</p>
+            </div>
+            <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="index.html#articles">Articles</a></li><li><a href="about-us.html">About</a></li><li><a href="contact-us.html">Contact</a></li></ul></div>
+            <div><h4>Articles</h4><ul><li><a href="article-1.html">Raise Children Who Love Allah</a></li><li><a href="article-2.html">Teach Salah To Children</a></li><li><a href="article-6.html">Quran Learning For Kids</a></li></ul></div>
+            <div><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms-and-conditions.html">Terms</a></li><li><a href="disclaimer.html">Disclaimer</a></li></ul></div>
+        </div>
+        <hr style="border-color:rgba(255,255,255,.06);margin:0 0 30px;">
+        <div class="copyright">© 2026 NurulBayt · Made with ❤️ for Muslim families</div>
+    </div>
+</footer>
+
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
 </html>
