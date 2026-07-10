@@ -1,9 +1,20 @@
 // ===== LOADER =====
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        const loader = document.getElementById("loader");
-        if (loader) loader.classList.add("hidden");
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        document.getElementById("loader").classList.add("hidden");
     }, 1200);
+});
+
+// ===== READING PROGRESS BAR =====
+const progressBar = document.createElement("div");
+progressBar.className = "reading-progress";
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / docHeight) * 100;
+    progressBar.style.width = scrolled + "%";
 });
 
 // ===== SCROLL REVEAL =====
@@ -12,198 +23,269 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("active");
-            revealObserver.unobserve(entry.target); // Once revealed, stop observing
         }
     });
-}, { threshold: 0.1 }); // FIX: 0.12 → 0.1 for better trigger timing
+}, { threshold: 0.12 });
 reveals.forEach(el => revealObserver.observe(el));
 
 // ===== BACK TO TOP =====
 const backBtn = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
-    if (!backBtn) return;
-    backBtn.style.display = window.scrollY > 400 ? "flex" : "none";
-}, { passive: true });
+    if (window.scrollY > 400) {
+        backBtn.style.display = "flex";
+    } else {
+        backBtn.style.display = "none";
+    }
+});
 
 // ===== NAVBAR SCROLL EFFECT =====
 window.addEventListener("scroll", () => {
-    const navbar = document.getElementById("navbar");
-    if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 50);
-}, { passive: true });
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
 
-// ===== MOBILE MENU =====
+// ===== MOBILE MENU WITH OVERLAY =====
 const menuBtn = document.getElementById("menuBtn");
 const navMenu = document.getElementById("navMenu");
-if (menuBtn && navMenu) {
-    // FIX: Support both click and keyboard (Enter/Space) for accessibility
-    function toggleMenu() {
-        const isOpen = navMenu.classList.toggle("open");
-        menuBtn.setAttribute("aria-expanded", isOpen);
-        menuBtn.textContent = isOpen ? "✕" : "☰";
+
+// Create overlay
+const overlay = document.createElement("div");
+overlay.className = "nav-overlay";
+document.body.appendChild(overlay);
+
+menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+    overlay.classList.toggle("active");
+    document.body.style.overflow = navMenu.classList.contains("open") ? "hidden" : "";
+});
+
+// Close on overlay click
+overlay.addEventListener("click", () => {
+    navMenu.classList.remove("open");
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+});
+
+// Close on escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navMenu.classList.contains("open")) {
+        navMenu.classList.remove("open");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
     }
-    menuBtn.addEventListener("click", toggleMenu);
-    menuBtn.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggleMenu();
-        }
-    });
+});
 
-    // Close menu when a nav link is clicked (mobile UX improvement)
-    navMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("open");
-            menuBtn.setAttribute("aria-expanded", "false");
-            menuBtn.textContent = "☰";
-        });
+// Close on link click
+navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
     });
+});
 
-    // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
-        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-            navMenu.classList.remove("open");
-            menuBtn.setAttribute("aria-expanded", "false");
-            menuBtn.textContent = "☰";
-        }
-    });
-}
-
-// ===== FAQ =====
+// ===== FAQ TOGGLE =====
 function toggleFAQ(el) {
-    // Close all others first
-    document.querySelectorAll(".faq-item.active").forEach(item => {
-        if (item !== el) {
-            item.classList.remove("active");
-            item.setAttribute("aria-expanded", "false");
-        }
-    });
-    // Toggle current
-    const isActive = el.classList.toggle("active");
-    el.setAttribute("aria-expanded", isActive);
+    el.classList.toggle("active");
 }
 
-// FIX: FAQ keyboard support
-document.querySelectorAll(".faq-item").forEach(item => {
-    item.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggleFAQ(item);
-        }
+// ===== ARTICLE FAQ TOGGLE =====
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.article-faq .faq-item').forEach(item => {
+        item.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
     });
 });
 
 // ===== COUNTER =====
-// FIX 1: Uses data-suffix for proper %, +, /7 display
-// FIX 2: threshold lowered to 0.15 so counters trigger before being half-hidden
-// FIX 3: Starts from displayed static value so no flash of "0"
 const counters = document.querySelectorAll(".counter");
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.dataset.target);
-            const suffix = el.dataset.suffix || "";
+            const target = parseInt(entry.target.dataset.target);
+            const suffix = entry.target.dataset.suffix || "";
+            const duration = 2000;
+            const steps = 60;
+            const increment = target / steps;
             let current = 0;
-            const duration = 1400; // ms
-            const steps = 55;
-            const increment = Math.ceil(target / steps);
-            const interval = Math.floor(duration / steps);
-
+            let step = 0;
+            
             const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    el.textContent = target + suffix;
+                step++;
+                current = Math.min(Math.round(increment * step), target);
+                entry.target.textContent = current + suffix;
+                
+                if (step >= steps) {
+                    entry.target.textContent = target + suffix;
                     clearInterval(timer);
-                } else {
-                    el.textContent = current + suffix;
                 }
-            }, interval);
-
-            counterObserver.unobserve(el);
+            }, duration / steps);
+            
+            counterObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.15 }); // FIX: was 0.5 — too high, caused counters to show 0
-
+}, { threshold: 0.5 });
 counters.forEach(el => counterObserver.observe(el));
 
 // ===== DARK MODE =====
-// FIX: Apply to <html> element to prevent flash of wrong theme
-// (The localStorage check in <head> already adds the class to html on load)
 function toggleDarkMode() {
-    const isDark = document.documentElement.classList.toggle("dark-mode");
-    document.body.classList.toggle("dark-mode", isDark); // keep body in sync for legacy CSS
+    document.body.classList.toggle("dark-mode");
     const btn = document.getElementById("darkModeBtn");
-    if (btn) btn.textContent = isDark ? "☀️" : "🌙";
+    const isDark = document.body.classList.contains("dark-mode");
+    
+    btn.textContent = isDark ? "☀️" : "";
     localStorage.setItem("theme", isDark ? "dark" : "light");
+    
+    // Track in analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'theme_change', {
+            'event_category': 'engagement',
+            'event_label': isDark ? 'dark' : 'light'
+        });
+    }
 }
 
-// Sync button icon on page load
-(function () {
-    const isDark = document.documentElement.classList.contains("dark-mode");
-    if (isDark) {
+// Initialize dark mode with system preference
+function initDarkMode() {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
         document.body.classList.add("dark-mode");
-        const btn = document.getElementById("darkModeBtn");
-        if (btn) btn.textContent = "☀️";
+        document.getElementById("darkModeBtn").textContent = "☀️";
     }
-})();
+}
 
-// ===== SEARCH FUNCTION =====
-// FIX: Uses display:"" instead of "block" to preserve grid layout
+initDarkMode();
+
+// ===== DEBOUNCE FUNCTION =====
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// ===== SEARCH FUNCTION WITH DEBOUNCE =====
 const searchInput = document.getElementById("searchInput");
-const noResults = document.getElementById("noResults");
+const handleSearch = debounce(function(query) {
+    query = query.toLowerCase();
+    const cards = document.querySelectorAll(".article-card");
+    let visibleCount = 0;
+    
+    cards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const desc = card.querySelector("p").textContent.toLowerCase();
+        const category = card.querySelector(".article-category").textContent.toLowerCase();
+        
+        const matches = title.includes(query) || desc.includes(query) || category.includes(query);
+        card.style.display = matches ? "block" : "none";
+        if (matches) visibleCount++;
+    });
+    
+    // Show/hide no results message
+    const noResults = document.getElementById("noResults");
+    if (noResults) {
+        noResults.style.display = visibleCount === 0 && query ? "block" : "none";
+    }
+}, 300);
 
 if (searchInput) {
-    searchInput.addEventListener("input", function () {
-        const query = this.value.toLowerCase().trim();
-        const cards = document.querySelectorAll(".article-card");
-        let visibleCount = 0;
-
-        cards.forEach(card => {
-            const titleEl = card.querySelector("h3");
-            const descEl = card.querySelector("p");
-            const catEl = card.querySelector(".article-category");
-
-            const title = titleEl ? titleEl.textContent.toLowerCase() : "";
-            const desc = descEl ? descEl.textContent.toLowerCase() : "";
-            const cat = catEl ? catEl.textContent.toLowerCase() : "";
-
-            const matches = !query || title.includes(query) || desc.includes(query) || cat.includes(query);
-
-            // FIX: Use "" not "block" — preserves CSS grid display
-            card.style.display = matches ? "" : "none";
-            if (matches) visibleCount++;
-        });
-
-        // Show "no results" message if nothing matches
-        if (noResults) {
-            noResults.style.display = (query && visibleCount === 0) ? "block" : "none";
-        }
+    searchInput.addEventListener("input", function() {
+        handleSearch(this.value);
     });
 }
 
-// ===== NEWSLETTER FORM FEEDBACK =====
-function handleNewsletter(e) {
-    const form = e.target;
-    const btn = form.querySelector("button[type='submit']");
-
-    // Only intercept if Formspree ID not yet replaced
-    if (form.action.includes("YOUR_FORM_ID")) {
-        e.preventDefault();
-        if (btn) {
-            btn.textContent = "⚠️ Setup needed";
-            btn.style.opacity = ".7";
-            setTimeout(() => {
-                btn.textContent = "Subscribe";
-                btn.style.opacity = "1";
-            }, 3000);
-        }
-        console.warn("NurulBayt: Replace YOUR_FORM_ID in index.html with your real Formspree ID.");
-        return;
+// ===== SHARE FUNCTIONS =====
+function shareWhatsApp() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    window.open(`https://wa.me/?text=${title}%20${url}`, '_blank');
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+            'method': 'whatsapp',
+            'content_type': 'article'
+        });
     }
+}
 
-    // Real submission feedback
-    if (btn) {
-        btn.textContent = "Sending...";
-        btn.disabled = true;
+function shareFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+            'method': 'facebook',
+            'content_type': 'article'
+        });
     }
+}
+
+function shareTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank', 'width=600,height=400');
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+            'method': 'twitter',
+            'content_type': 'article'
+        });
+    }
+}
+
+function copyLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        const msg = document.getElementById('copiedMsg');
+        if (msg) {
+            msg.classList.add('show');
+            setTimeout(() => msg.classList.remove('show'), 3000);
         }
+    });
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+            'method': 'copy_link',
+            'content_type': 'article'
+        });
+    }
+}
+
+// ===== PERFORMANCE TRACKING =====
+window.addEventListener('load', () => {
+    const loadTime = performance.now();
+    console.log(`Page loaded in ${Math.round(loadTime)}ms`);
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_load', {
+            'event_category': 'performance',
+            'event_label': `${Math.round(loadTime)}ms`
+        });
+    }
+});
+
+// ===== TRACK SCROLL DEPTH =====
+let maxScroll = 0;
+window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+    if (scrollPercent > maxScroll) {
+        maxScroll = scrollPercent;
+        
+        // Track at 25%, 50%, 75%, 100%
+        if ([25, 50, 75, 100].includes(maxScroll)) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': `${maxScroll}%`
+                });
+            }
+        }
+    }
+});
