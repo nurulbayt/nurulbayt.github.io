@@ -1,428 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — NurulBayt Islamic Parenting</title>
-    <meta name="description" content="Learn about NurulBayt — our mission to help Muslim families raise righteous children through authentic Quran and Sunnah based guidance.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="About NurulBayt — Islamic Parenting">
-    <meta property="og:description" content="Our mission is to help Muslim families raise righteous children through authentic Islamic guidance.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About Us — NurulBayt</title>
+    <meta name="description" content="About NurulBayt — Muslim parents and educators helping families raise righteous children through authentic Quran and Sunnah guidance."/>
+    <meta name="robots" content="noindex, follow"/>
+    <link rel="canonical" href="https://nurulbayt.github.io/about-us.html"/>
+    <meta property="og:title" content="About Us — NurulBayt"/>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script>if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark-mode");}</script>
     <style>
-        .page-hero {
-            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-primary) 100%);
-            padding: 140px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .page-hero::before {
-            content: "";
-            position: absolute;
-            top: -100px; left: -100px;
-            width: 400px; height: 400px;
-            background: rgba(212,175,55,.06);
-            border-radius: 50%;
-            filter: blur(80px);
-        }
-        .page-hero-label {
-            color: var(--gold);
-            font-size: .8rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-        .page-hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            color: white;
-            margin-bottom: 18px;
-            line-height: 1.2;
-        }
-        .page-hero h1 span { color: var(--gold); }
-        .page-hero p {
-            color: rgba(255,255,255,.75);
-            font-size: 1.1rem;
-            max-width: 580px;
-            margin: auto;
-            line-height: 1.8;
-        }
-        .about-story { padding: 80px 0; }
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .story-label {
-            color: var(--gold);
-            font-size: .8rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-        }
-        .story-grid h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            color: var(--text);
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-        .story-grid h2 span { color: var(--gold); }
-        .story-grid p {
-            color: var(--gray);
-            line-height: 1.9;
-            margin-bottom: 16px;
-            font-size: 1rem;
-        }
-        .story-image {
-            border-radius: var(--radius);
-            overflow: hidden;
-            position: relative;
-        }
-        .story-image img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-            display: block;
-        }
-        .story-image-badge {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            background: rgba(8,28,21,.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212,175,55,.3);
-            border-radius: var(--radius-sm);
-            padding: 14px 20px;
-            color: white;
-        }
-        .story-image-badge strong {
-            display: block;
-            color: var(--gold);
-            font-size: 1.4rem;
-            font-family: 'Playfair Display', serif;
-        }
-        .story-image-badge span { font-size: .8rem; color: rgba(255,255,255,.7); }
-
-        /* VALUES */
-        .values-section { padding: 80px 0; background: var(--card-bg); }
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 50px;
-        }
-        .value-card {
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-            background: var(--white);
-            text-align: center;
-            transition: var(--transition);
-        }
-        .value-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: var(--shadow-hover); }
-        .value-icon { font-size: 2.8rem; margin-bottom: 18px; }
-        .value-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            color: var(--text);
-            margin-bottom: 12px;
-        }
-        .value-card p { color: var(--gray); font-size: .95rem; line-height: 1.7; }
-
-        /* TEAM */
-        .team-section { padding: 80px 0; }
-        .team-card {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            padding: 50px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
-            max-width: 780px;
-            margin: 0 auto 28px;
-            transition: var(--transition);
-        }
-        .team-card:hover { border-color: var(--gold); box-shadow: var(--shadow); }
-        .team-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), #f4d67c);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            flex-shrink: 0;
-            border: 3px solid var(--gold);
-        }
-        .team-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--text);
-            margin-bottom: 6px;
-        }
-        .team-role {
-            color: var(--gold);
-            font-size: .85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        .team-info p { color: var(--gray); line-height: 1.8; font-size: .95rem; }
-
-        /* COMMITMENT */
-        .commitment-section { padding: 80px 0; }
-        .commitment-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 50px;
-        }
-        .commitment-item {
-            padding: 32px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            transition: var(--transition);
-        }
-        .commitment-item:hover { border-color: var(--gold); }
-        .commitment-num {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), #f4d67c);
-            color: var(--green-dark);
-            font-weight: 800;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .commitment-item h4 { color: var(--text); font-size: 1rem; margin-bottom: 6px; font-weight: 600; }
-        .commitment-item p { color: var(--gray); font-size: .9rem; line-height: 1.7; margin: 0; }
-
-        /* CTA */
-        .about-cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--green-dark), var(--green-primary));
-            text-align: center;
-        }
-        .about-cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            color: white;
-            margin-bottom: 16px;
-        }
-        .about-cta h2 span { color: var(--gold); }
-        .about-cta p { color: rgba(255,255,255,.75); max-width: 580px; margin: 0 auto 36px; line-height: 1.8; }
-        .btn-outline {
-            display: inline-block;
-            padding: 14px 36px;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            border-radius: 100px;
-            font-weight: 600;
-            font-size: .95rem;
-            transition: var(--transition);
-            margin-left: 14px;
-        }
-        .btn-outline:hover { background: var(--gold); color: var(--green-dark); }
-
-        @media(max-width:768px) {
-            .page-hero h1 { font-size: 2.2rem; }
-            .story-grid { grid-template-columns: 1fr; gap: 36px; }
-            .values-grid { grid-template-columns: 1fr; }
-            .commitment-grid { grid-template-columns: 1fr; }
-            .team-card { flex-direction: column; text-align: center; padding: 36px 24px; }
-            .about-cta h2 { font-size: 2rem; }
-            .btn-outline { margin-left: 0; margin-top: 12px; }
-        }
+        .legal-header { margin-top: 100px; padding: 80px 0; background: linear-gradient(135deg, rgba(8,28,21,.95), rgba(12,45,37,.9)); color: white; text-align: center; border-radius: 0 0 var(--radius) var(--radius); }
+        .legal-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 20px 0; color: white; }
+        .legal-header .meta { font-size: .95rem; opacity: .9; }
+        .legal-body { max-width: 800px; margin: 60px auto; padding: 0 20px; font-size: 1.05rem; line-height: 1.9; color: var(--text); }
+        .legal-body h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--green-primary); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid rgba(212,175,55,.2); }
+        .legal-body h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--green-primary); margin: 30px 0 15px; }
+        .legal-body p { margin-bottom: 20px; }
+        .legal-body a { color: var(--gold); font-weight: 600; text-decoration: underline; }
+        .legal-body a:hover { color: var(--green-primary); }
+        .story-box { background: linear-gradient(135deg, rgba(212,175,55,.08), rgba(212,175,55,.03)); padding: 30px; border-radius: var(--radius); border-left: 4px solid var(--gold); margin: 30px 0; font-style: italic; }
+        .story-box .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; color: var(--green-primary); text-align: center; direction: rtl; margin-bottom: 15px; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 40px 0; }
+        .value-card { padding: 30px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); text-align: center; transition: var(--transition); }
+        .value-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: var(--shadow); }
+        .value-card .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .value-card h3 { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; }
+        .value-card p { color: var(--gray); font-size: .95rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0; }
+        .team-card { padding: 30px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); transition: var(--transition); }
+        .team-card:hover { border-color: var(--gold); }
+        .team-card .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .team-card h3 { color: var(--green-primary); font-size: 1.3rem; margin-bottom: 5px; }
+        .team-card .role { color: var(--gold); font-size: .9rem; font-weight: 600; margin-bottom: 15px; display: block; }
+        .commitments-list { list-style: none; padding: 0; margin: 30px 0; }
+        .commitments-list li { padding: 20px 25px; background: rgba(255,255,255,.04); border-radius: var(--radius); margin-bottom: 15px; border-left: 4px solid var(--gold); display: flex; align-items: flex-start; gap: 20px; }
+        .commitments-list li .number { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); font-weight: 700; min-width: 40px; }
+        .commitments-list li h4 { color: var(--green-primary); margin-bottom: 8px; font-size: 1.2rem; }
+        .commitments-list li p { color: var(--gray); margin: 0; }
+        .cta-box { background: linear-gradient(135deg, var(--green-dark), var(--green-primary)); padding: 50px 30px; border-radius: var(--radius); text-align: center; color: white; margin: 50px 0; }
+        .cta-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: white; margin-bottom: 15px; }
+        .cta-box p { color: rgba(255,255,255,.9); margin-bottom: 25px; }
+        .cta-box .btn-primary { display: inline-block; margin: 0 10px; }
+        @media(max-width:768px) { .legal-header h1 { font-size: 2rem; } .legal-body h2 { font-size: 1.5rem; } }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1XWF97RZJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-B1XWF97RZJ');
-</script>
 </head>
 <body>
-
-<!-- NAVBAR -->
+<div class="reading-progress" id="readingProgress"></div>
 <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-container">
         <a href="index.html" class="logo" aria-label="NurulBayt Home">🕌 <span>NurulBayt</span></a>
         <ul class="nav-menu" id="navMenu" role="menubar">
-            <li><a href="index.html" role="menuitem">Home</a></li>
-            <li><a href="index.html#articles" role="menuitem">Articles</a></li>
-            <li><a href="about-us.html" class="active" role="menuitem">About</a></li>
-            <li><a href="index.html#faq" role="menuitem">FAQ</a></li>
-            <li><a href="contact-us.html" role="menuitem">Contact</a></li>
+            <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+            <li role="none"><a href="index.html#articles" role="menuitem">Articles</a></li>
+            <li role="none"><a href="about-us.html" role="menuitem">About</a></li>
+            <li role="none"><a href="index.html#faq" role="menuitem">FAQ</a></li>
+            <li role="none"><a href="contact-us.html" role="menuitem">Contact</a></li>
         </ul>
         <div class="nav-actions">
-            <button class="menu-btn" id="menuBtn" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
-            <button id="darkModeBtn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle mobile menu">☰</button>
+            <button id="darkModeBtn" onclick="toggleDarkMode()" aria-label="Toggle dark mode"></button>
         </div>
     </div>
 </nav>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
+<header class="legal-header">
     <div class="container">
-        <p class="page-hero-label">Our Story</p>
-        <h1>About <span>NurulBayt</span></h1>
-        <p>We are a team of Muslim parents and educators dedicated to helping families raise righteous children through authentic Quran and Sunnah based guidance.</p>
+        <a href="index.html" style="display:inline-block;margin-bottom:20px;color:var(--gold);font-weight:600;text-decoration:none;">← Back to Home</a>
+        <h1>About NurulBayt</h1>
+        <p class="meta">We are a team of Muslim parents and educators dedicated to helping families raise righteous children through authentic Quran and Sunnah based guidance.</p>
     </div>
-</section>
+</header>
 
-<!-- STORY -->
-<section class="about-story">
-    <div class="container">
-        <div class="story-grid">
-            <div class="reveal">
-                <p class="story-label">Who We Are</p>
-                <h2>Born From a <span>Parent's Prayer</span></h2>
-                <p>NurulBayt began with a simple, sincere dua — the same one Prophet Ibrahim ﷺ made: <em>"My Lord, grant me righteous children."</em> We are Muslim parents who felt the weight of raising children in a modern world while staying true to Islamic values.</p>
-                <p>We looked for practical, authentic Islamic parenting guidance and found that most resources were either too academic, too vague, or simply not rooted in the Quran and Sunnah. So we built what we wished had existed when we needed it most.</p>
-                <p>NurulBayt — meaning "The Light of the Home" — is our commitment to bringing that light into every Muslim family's home, one article, one dua, one conversation at a time.</p>
-            </div>
-            <div class="story-image reveal">
-                <img src="https://images.pexels.com/photos/8164749/pexels-photo-8164749.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Muslim family together — the heart of NurulBayt" loading="lazy">
-                <div class="story-image-badge">
-                    <strong>2024</strong>
-                    <span>Founded with a dua</span>
-                </div>
-            </div>
-        </div>
+<article class="legal-body">
+    <h2>Our Story</h2>
+    
+    <div class="story-box">
+        <p class="arabic">رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ</p>
+        <p style="text-align:center;font-style:italic;margin-bottom:0;">"My Lord, grant me righteous children." — Surah As-Saffat (37:100)</p>
     </div>
-</section>
 
-<!-- VALUES -->
-<section class="values-section">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>Our Core Values</h2>
-            <p>Everything we publish is guided by these three principles.</p>
+    <h3>Born From a Parent's Prayer</h3>
+    <p>NurulBayt began with a simple, sincere dua — the same one Prophet Ibrahim ﷺ made. We are Muslim parents who felt the weight of raising children in a modern world while staying true to Islamic values.</p>
+    <p>We looked for practical, authentic Islamic parenting guidance and found that most resources were either too academic, too vague, or simply not rooted in the Quran and Sunnah. So we built what we wished had existed when we needed it most.</p>
+    <p><strong>NurulBayt</strong> — meaning "The Light of the Home" — is our commitment to bringing that light into every Muslim family's home, one article, one dua, one conversation at a time.</p>
+
+    <h2>Our Core Values</h2>
+    <p>Everything we publish is guided by these three principles.</p>
+
+    <div class="values-grid">
+        <div class="value-card">
+            <span class="icon">📖</span>
+            <h3>Quran & Sunnah First</h3>
+            <p>Every article is rooted in authentic Islamic sources. We never publish advice that contradicts the Quran or the Sunnah of the Prophet ﷺ.</p>
         </div>
-        <div class="values-grid">
-            <div class="value-card reveal">
-                <div class="value-icon">📖</div>
-                <h3>Quran & Sunnah First</h3>
-                <p>Every article is rooted in authentic Islamic sources. We never publish advice that contradicts the Quran or the Sunnah of the Prophet ﷺ.</p>
-            </div>
-            <div class="value-card reveal">
-                <div class="value-icon">💡</div>
-                <h3>Practical & Actionable</h3>
-                <p>We believe guidance must be usable. Every article gives parents real steps they can take today — not just theory, but lived practice.</p>
-            </div>
-            <div class="value-card reveal">
-                <div class="value-icon">❤️</div>
-                <h3>Love Over Fear</h3>
-                <p>We teach parents to raise children who love Allah — not out of fear or obligation, but out of genuine faith, gratitude, and connection.</p>
-            </div>
+        <div class="value-card">
+            <span class="icon">💡</span>
+            <h3>Practical & Actionable</h3>
+            <p>We believe guidance must be usable. Every article gives parents real steps they can take today — not just theory, but lived practice.</p>
+        </div>
+        <div class="value-card">
+            <span class="icon">❤️</span>
+            <h3>Love Over Fear</h3>
+            <p>We teach parents to raise children who love Allah — not out of fear or obligation, but out of genuine faith, gratitude, and connection.</p>
         </div>
     </div>
-</section>
 
-<!-- TEAM -->
-<section class="team-section">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>The NurulBayt Team</h2>
-            <p>Muslim parents, educators, and researchers — united by one mission.</p>
+    <h2>The NurulBayt Team</h2>
+    <p>Muslim parents, educators, and researchers — united by one mission.</p>
+
+    <div class="team-grid">
+        <div class="team-card">
+            <span class="icon">🕌</span>
+            <h3>NurulBayt Editorial Team</h3>
+            <span class="role">Authors & Researchers</span>
+            <p>Our team consists of Muslim parents, Islamic educators, and researchers who bring together lived parenting experience with deep grounding in Islamic scholarship. Every article is reviewed for authenticity, practicality, and sincerity before publication.</p>
         </div>
-        <div class="team-card reveal">
-            <div class="team-avatar">🕌</div>
-            <div class="team-info">
-                <h3>NurulBayt Editorial Team</h3>
-                <p class="team-role">Authors & Researchers</p>
-                <p>Our team consists of Muslim parents, Islamic educators, and researchers who bring together lived parenting experience with deep grounding in Islamic scholarship. Every article is reviewed for authenticity, practicality, and sincerity before publication.</p>
-            </div>
-        </div>
-        <div class="team-card reveal">
-            <div class="team-avatar">🤲</div>
-            <div class="team-info">
-                <h3>Our Islamic Scholars</h3>
-                <p class="team-role">Guidance & Review</p>
-                <p>Our content draws on the wisdom of classical Islamic scholars and contemporary Islamic parenting experts. We are committed to ensuring every piece of advice aligns with authentic Quran and Sunnah, reviewed with care and responsibility.</p>
-            </div>
+        <div class="team-card">
+            <span class="icon">🤲</span>
+            <h3>Our Islamic Scholars</h3>
+            <span class="role">Guidance & Review</span>
+            <p>Our content draws on the wisdom of classical Islamic scholars and contemporary Islamic parenting experts. We are committed to ensuring every piece of advice aligns with authentic Quran and Sunnah, reviewed with care and responsibility.</p>
         </div>
     </div>
-</section>
 
-<!-- COMMITMENTS -->
-<section class="commitment-section">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>Our Commitments to You</h2>
-            <p>What every Muslim family can expect from NurulBayt.</p>
-        </div>
-        <div class="commitment-grid">
-            <div class="commitment-item reveal">
-                <div class="commitment-num">1</div>
-                <div>
-                    <h4>Always Free</h4>
-                    <p>All NurulBayt articles and guidance will always be completely free. Islamic parenting knowledge should be accessible to every Muslim family, everywhere.</p>
-                </div>
-            </div>
-            <div class="commitment-item reveal">
-                <div class="commitment-num">2</div>
-                <div>
-                    <h4>Authentic Sources Only</h4>
-                    <p>We only publish content rooted in the Quran, authentic Hadith, and trusted Islamic scholarship. No fabricated hadith, no cultural opinion presented as religion.</p>
-                </div>
-            </div>
-            <div class="commitment-item reveal">
-                <div class="commitment-num">3</div>
-                <div>
-                    <h4>Practical for Modern Families</h4>
-                    <p>We understand the challenges Muslim families face today — screens, peer pressure, identity. Our guidance meets you where you are, not where we wish you were.</p>
-                </div>
-            </div>
-            <div class="commitment-item reveal">
-                <div class="commitment-num">4</div>
-                <div>
-                    <h4>Respectful of All Backgrounds</h4>
-                    <p>Muslim families come from every culture and background. We write for all of them — with respect, inclusion, and a shared love of Islam as our foundation.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <h2>Our Commitments to You</h2>
+    <p>What every Muslim family can expect from NurulBayt.</p>
 
-<!-- CTA -->
-<section class="about-cta">
-    <div class="container">
-        <h2>Start Your <span>Parenting Journey</span></h2>
+    <ul class="commitments-list">
+        <li>
+            <span class="number">1</span>
+            <div>
+                <h4>Always Free</h4>
+                <p>All NurulBayt articles and guidance will always be completely free. Islamic parenting knowledge should be accessible to every Muslim family, everywhere.</p>
+            </div>
+        </li>
+        <li>
+            <span class="number">2</span>
+            <div>
+                <h4>Authentic Sources Only</h4>
+                <p>We only publish content rooted in the Quran, authentic Hadith, and trusted Islamic scholarship. No fabricated hadith, no cultural opinion presented as religion.</p>
+            </div>
+        </li>
+        <li>
+            <span class="number">3</span>
+            <div>
+                <h4>Practical for Modern Families</h4>
+                <p>We understand the challenges Muslim families face today — screens, peer pressure, identity. Our guidance meets you where you are, not where we wish you were.</p>
+            </div>
+        </li>
+        <li>
+            <span class="number">4</span>
+            <div>
+                <h4>Respectful of All Backgrounds</h4>
+                <p>Muslim families come from every culture and background. We write for all of them — with respect, inclusion, and a shared love of Islam as our foundation.</p>
+            </div>
+        </li>
+    </ul>
+
+    <div class="cta-box">
+        <h2>Start Your Parenting Journey</h2>
         <p>Explore our articles, make dua, and take one small step today. Every righteous action you take for your child is sadaqah jariyah that continues after you are gone.</p>
         <a href="index.html#articles" class="btn-primary">📖 Read Articles</a>
-        <a href="contact-us.html" class="btn-outline">Contact Us</a>
+        <a href="contact-us.html" class="btn-primary" style="background:rgba(255,255,255,.1);color:white;">Contact Us</a>
     </div>
-</section>
+</article>
 
-<!-- FOOTER -->
 <footer class="footer" role="contentinfo">
     <div class="container">
+        <p class="footer-arabic">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</p>
+        <p class="footer-arabic-translation">"The best among you are those who learn the Quran and teach it." — Sahih Bukhari</p>
         <div class="footer-grid">
             <div>
-                <h3 class="logo" style="font-size:2rem;">🕌 <span>NurulBayt</span></h3>
-                <p style="color:rgba(255,255,255,.7);line-height:1.8;">Helping Muslim families raise righteous children through Quran and Sunnah based guidance.</p>
+                <h3 class="logo">🕌 <span>NurulBayt</span></h3>
+                <p style="color:rgba(255,255,255,.7);">Helping Muslim families raise righteous children.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
@@ -434,28 +189,29 @@
                 </ul>
             </div>
             <div>
-                <h4>Articles</h4>
+                <h4>Resources</h4>
                 <ul>
-                    <li><a href="article-1.html">Raise Children Who Love Allah</a></li>
-                    <li><a href="article-2.html">Teach Salah To Children</a></li>
-                    <li><a href="article-6.html">Quran Learning For Kids</a></li>
+                    <li><a href="raise-children-who-love-allah.html">Parenting</a></li>
+                    <li><a href="islamic-environment-at-home.html">Family Guide</a></li>
+                    <li><a href="quran-learning-enjoyable-kids.html">Quran Learning</a></li>
+                    <li><a href="teach-salah-to-children.html">Teaching Salah</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Legal</h4>
                 <ul>
                     <li><a href="privacy-policy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="terms-and-conditions.html">Terms</a></li>
                     <li><a href="disclaimer.html">Disclaimer</a></li>
                 </ul>
             </div>
         </div>
-        <hr style="border-color:rgba(255,255,255,.06);margin:0 0 30px;">
+        <hr>
         <div class="copyright">© 2026 NurulBayt · Made with ❤️ for Muslim families</div>
     </div>
 </footer>
 
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script src="script.js"></script>
 </body>
 </html>
