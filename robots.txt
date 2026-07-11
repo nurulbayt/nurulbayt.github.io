@@ -1,4 +1,25 @@
+# robots.txt for NurulBayt
+# https://nurulbayt.github.io
+
 User-agent: *
 Allow: /
 
-Sitemap: https://subkuch443786.github.io/nurulbayt/sitemap.xml
+# Sitemap location
+Sitemap: https://nurulbayt.github.io/sitemap.xml
+
+# Crawl-delay (optional - be nice to servers)
+Crawl-delay: 1
+
+# Disallow admin/private pages (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
