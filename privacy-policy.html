@@ -1,285 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Privacy Policy — NurulBayt</title>
-    <meta name="description" content="NurulBayt Privacy Policy — how we collect, use, and protect your information.">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="NurulBayt Privacy Policy. Learn how we collect, use, and protect your information."/>
+    <meta name="robots" content="noindex, follow"/>
+    <link rel="canonical" href="https://nurulbayt.github.io/privacy-policy.html"/>
+    <meta property="og:title" content="Privacy Policy — NurulBayt"/>
+    <meta property="og:description" content="How NurulBayt handles your data with trust and transparency."/>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script>if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark-mode");}</script>
     <style>
-        .page-hero {
-            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-primary) 100%);
-            padding: 140px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .page-hero-label { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; }
-        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: white; margin-bottom: 18px; }
-        .page-hero h1 span { color: var(--gold); }
-        .page-hero p { color: rgba(255,255,255,.7); font-size: .95rem; max-width: 500px; margin: auto; }
-
-        .legal-section { padding: 80px 0; }
-        .legal-layout { display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: start; }
-
-        /* SIDEBAR NAV */
-        .legal-nav {
-            position: sticky;
-            top: 100px;
-            padding: 28px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
-        }
-        .legal-nav h4 { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
-        .legal-nav ul { list-style: none; }
-        .legal-nav li { margin-bottom: 10px; }
-        .legal-nav a { color: var(--gray); font-size: .88rem; transition: var(--transition); display: block; padding: 4px 0; border-left: 2px solid transparent; padding-left: 10px; }
-        .legal-nav a:hover { color: var(--gold); border-left-color: var(--gold); padding-left: 14px; }
-
-        /* CONTENT */
-        .legal-content { max-width: 740px; }
-        .legal-updated {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 18px; border-radius: 100px;
-            background: rgba(212,175,55,.1); border: 1px solid rgba(212,175,55,.2);
-            color: var(--gold); font-size: .82rem; font-weight: 600;
-            margin-bottom: 40px;
-        }
-        .legal-section-block {
-            margin-bottom: 48px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid var(--card-border);
-        }
-        .legal-section-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .legal-section-block h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--text);
-            margin-bottom: 16px;
-            display: flex; align-items: center; gap: 12px;
-        }
-        .legal-section-block h2 span { font-size: 1.4rem; }
-        .legal-section-block p { color: var(--gray); line-height: 1.9; margin-bottom: 14px; font-size: .96rem; }
-        .legal-section-block p:last-child { margin-bottom: 0; }
-        .legal-section-block ul { padding-left: 0; list-style: none; }
-        .legal-section-block ul li {
-            color: var(--gray);
-            padding: 8px 0 8px 24px;
-            position: relative;
-            font-size: .95rem;
-            line-height: 1.7;
-            border-bottom: 1px solid var(--card-border);
-        }
-        .legal-section-block ul li:last-child { border-bottom: none; }
-        .legal-section-block ul li::before {
-            content: "→";
-            position: absolute; left: 0;
-            color: var(--gold); font-weight: 700;
-        }
-        .legal-highlight {
-            padding: 20px 24px;
-            border-radius: var(--radius-sm);
-            background: rgba(212,175,55,.07);
-            border-left: 4px solid var(--gold);
-            margin: 20px 0;
-        }
-        .legal-highlight p { color: var(--text-secondary); font-size: .92rem; margin: 0; }
-        .legal-contact-box {
-            padding: 32px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
-            text-align: center;
-            margin-top: 48px;
-        }
-        .legal-contact-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); margin-bottom: 10px; }
-        .legal-contact-box p { color: var(--gray); margin-bottom: 20px; font-size: .92rem; }
-        .legal-contact-box a { color: var(--gold); font-weight: 600; }
-
-        @media(max-width:768px) {
-            .legal-layout { grid-template-columns: 1fr; }
-            .legal-nav { position: static; }
-            .page-hero h1 { font-size: 2.2rem; }
-        }
+        .legal-header { margin-top: 100px; padding: 80px 0; background: linear-gradient(135deg, rgba(8,28,21,.95), rgba(12,45,37,.9)); color: white; text-align: center; border-radius: 0 0 var(--radius) var(--radius); }
+        .legal-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 20px 0; color: white; }
+        .legal-header .meta { font-size: .95rem; opacity: .9; }
+        .legal-body { max-width: 800px; margin: 60px auto; padding: 0 20px; font-size: 1.05rem; line-height: 1.9; color: var(--text); }
+        .legal-body h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--green-primary); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid rgba(212,175,55,.2); }
+        .legal-body h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--green-primary); margin: 30px 0 15px; }
+        .legal-body p { margin-bottom: 20px; }
+        .legal-body ul { margin: 20px 0; padding-left: 25px; }
+        .legal-body ul li { margin-bottom: 10px; list-style-type: disc; }
+        .legal-body a { color: var(--gold); font-weight: 600; text-decoration: underline; }
+        .legal-body a:hover { color: var(--green-primary); }
+        .last-updated { background: rgba(212,175,55,.08); padding: 15px 25px; border-radius: var(--radius); border-left: 4px solid var(--gold); margin: 30px 0; font-weight: 500; }
+        .toc-legal { background: rgba(255,255,255,.04); border: 1px solid rgba(212,175,55,.15); border-radius: var(--radius); padding: 25px; margin: 30px 0; }
+        .toc-legal h3 { color: var(--gold); margin-bottom: 15px; font-size: 1.2rem; }
+        .toc-legal ul { list-style: none; padding: 0; margin: 0; }
+        .toc-legal li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .toc-legal li::before { content: "→"; position: absolute; left: 0; color: var(--gold); }
+        .toc-legal a { color: var(--text); text-decoration: none; font-weight: 500; }
+        .toc-legal a:hover { color: var(--gold); }
+        @media(max-width:768px) { .legal-header h1 { font-size: 2rem; } .legal-body h2 { font-size: 1.5rem; } }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1XWF97RZJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-B1XWF97RZJ');
-</script>
 </head>
 <body>
-
-<!-- NAVBAR -->
+<div class="reading-progress" id="readingProgress"></div>
 <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-container">
         <a href="index.html" class="logo" aria-label="NurulBayt Home">🕌 <span>NurulBayt</span></a>
         <ul class="nav-menu" id="navMenu" role="menubar">
-            <li><a href="index.html" role="menuitem">Home</a></li>
-            <li><a href="index.html#articles" role="menuitem">Articles</a></li>
-            <li><a href="about-us.html" role="menuitem">About</a></li>
-            <li><a href="index.html#faq" role="menuitem">FAQ</a></li>
-            <li><a href="contact-us.html" role="menuitem">Contact</a></li>
+            <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+            <li role="none"><a href="index.html#articles" role="menuitem">Articles</a></li>
+            <li role="none"><a href="about-us.html" role="menuitem">About</a></li>
+            <li role="none"><a href="index.html#faq" role="menuitem">FAQ</a></li>
+            <li role="none"><a href="contact-us.html" role="menuitem">Contact</a></li>
         </ul>
         <div class="nav-actions">
-            <button class="menu-btn" id="menuBtn" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle mobile menu">☰</button>
             <button id="darkModeBtn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
         </div>
     </div>
 </nav>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
+<header class="legal-header">
     <div class="container">
-        <p class="page-hero-label">Legal</p>
-        <h1><span>Privacy</span> Policy</h1>
-        <p>We respect your privacy. Here is exactly how we collect, use, and protect your information.</p>
+        <a href="index.html" style="display:inline-block;margin-bottom:20px;color:var(--gold);font-weight:600;text-decoration:none;">← Back to Home</a>
+        <span class="article-category" style="background:rgba(212,175,55,.2);color:var(--gold-light);padding:8px 20px;border-radius:100px;font-size:.85rem;display:inline-block;">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="meta">We respect your privacy. Here is exactly how we collect, use, and protect your information.</p>
     </div>
-</section>
+</header>
 
-<!-- LEGAL CONTENT -->
-<section class="legal-section">
-    <div class="container">
-        <div class="legal-layout">
-
-            <!-- SIDEBAR -->
-            <nav class="legal-nav reveal" aria-label="Privacy policy sections">
-                <h4>Contents</h4>
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#collection">Information We Collect</a></li>
-                    <li><a href="#use">How We Use It</a></li>
-                    <li><a href="#cookies">Cookies</a></li>
-                    <li><a href="#adsense">Google AdSense</a></li>
-                    <li><a href="#third-party">Third Party Links</a></li>
-                    <li><a href="#children">Children's Privacy</a></li>
-                    <li><a href="#rights">Your Rights</a></li>
-                    <li><a href="#changes">Policy Changes</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </nav>
-
-            <!-- CONTENT -->
-            <div class="legal-content reveal">
-                <div class="legal-updated">📅 Last Updated: June 2026</div>
-
-                <div class="legal-section-block" id="overview">
-                    <h2><span>🔍</span> Overview</h2>
-                    <p>Welcome to NurulBayt ("we", "us", or "our"). We operate the website at <strong>subkuch443786.github.io/nurulbayt</strong> and are committed to protecting your privacy.</p>
-                    <p>This Privacy Policy explains what information we collect when you visit NurulBayt, how we use it, and your rights regarding that information. By using our website, you agree to the practices described in this policy.</p>
-                    <div class="legal-highlight">
-                        <p>🕌 <strong>Our commitment:</strong> NurulBayt is an Islamic parenting resource. We handle all user data with the same trust and responsibility we bring to our content — with sincerity, care, and transparency.</p>
-                    </div>
-                </div>
-
-                <div class="legal-section-block" id="collection">
-                    <h2><span>📋</span> Information We Collect</h2>
-                    <p>We collect minimal information to operate the website effectively:</p>
-                    <ul>
-                        <li><strong>Email address</strong> — if you subscribe to our newsletter voluntarily</li>
-                        <li><strong>Contact form data</strong> — name, email, and message if you contact us</li>
-                        <li><strong>Usage data</strong> — pages visited, time spent, browser type (via Google Analytics, anonymised)</li>
-                        <li><strong>Cookie data</strong> — small files stored in your browser for functionality and analytics</li>
-                    </ul>
-                    <p>We do not collect sensitive personal information such as financial data, health information, or government ID numbers.</p>
-                </div>
-
-                <div class="legal-section-block" id="use">
-                    <h2><span>💡</span> How We Use Your Information</h2>
-                    <p>Information collected is used solely for these purposes:</p>
-                    <ul>
-                        <li>Sending you newsletter emails if you have subscribed</li>
-                        <li>Responding to your contact form messages</li>
-                        <li>Analysing website traffic to improve our content</li>
-                        <li>Displaying relevant advertisements via Google AdSense</li>
-                        <li>Improving website performance and user experience</li>
-                    </ul>
-                    <p>We <strong>never sell, rent, or trade</strong> your personal information to third parties for their marketing purposes.</p>
-                </div>
-
-                <div class="legal-section-block" id="cookies">
-                    <h2><span>🍪</span> Cookies</h2>
-                    <p>NurulBayt uses cookies — small text files stored on your device — for the following purposes:</p>
-                    <ul>
-                        <li><strong>Functionality cookies:</strong> Remembering your dark/light mode preference</li>
-                        <li><strong>Analytics cookies:</strong> Google Analytics to understand how visitors use the site</li>
-                        <li><strong>Advertising cookies:</strong> Google AdSense to display relevant advertisements</li>
-                    </ul>
-                    <p>You can control or disable cookies through your browser settings. Note that disabling cookies may affect some website functionality.</p>
-                </div>
-
-                <div class="legal-section-block" id="adsense">
-                    <h2><span>📢</span> Google AdSense</h2>
-                    <p>NurulBayt may display advertisements provided by Google AdSense. Google uses cookies to serve ads based on your prior visits to our website and other websites on the internet.</p>
-                    <p>Google's use of advertising cookies enables it and its partners to serve ads based on your visit to NurulBayt and/or other websites on the internet.</p>
-                    <div class="legal-highlight">
-                        <p>You may opt out of personalised advertising by visiting <strong>Google's Ads Settings</strong> at <a href="https://www.google.com/settings/ads" style="color:var(--gold);">google.com/settings/ads</a>.</p>
-                    </div>
-                </div>
-
-                <div class="legal-section-block" id="third-party">
-                    <h2><span>🔗</span> Third Party Links</h2>
-                    <p>NurulBayt articles may contain links to external websites. We are not responsible for the privacy practices or content of those external sites.</p>
-                    <p>We recommend reviewing the privacy policy of any external website you visit through links on NurulBayt.</p>
-                </div>
-
-                <div class="legal-section-block" id="children">
-                    <h2><span>👶</span> Children's Privacy</h2>
-                    <p>NurulBayt is an Islamic parenting resource intended for adult Muslim parents and caregivers. While our content is about children, it is written for adults.</p>
-                    <p>We do not knowingly collect personal information from children under the age of 13. If you believe a child has provided us with personal information, please contact us immediately at <a href="mailto:contact@nurulbayt.com" style="color:var(--gold);">contact@nurulbayt.com</a>.</p>
-                </div>
-
-                <div class="legal-section-block" id="rights">
-                    <h2><span>✅</span> Your Rights</h2>
-                    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
-                    <ul>
-                        <li>The right to access information we hold about you</li>
-                        <li>The right to correct inaccurate personal data</li>
-                        <li>The right to request deletion of your personal data</li>
-                        <li>The right to unsubscribe from our newsletter at any time</li>
-                        <li>The right to opt out of analytics and advertising cookies</li>
-                    </ul>
-                    <p>To exercise any of these rights, contact us at <a href="mailto:contact@nurulbayt.com" style="color:var(--gold);">contact@nurulbayt.com</a>.</p>
-                </div>
-
-                <div class="legal-section-block" id="changes">
-                    <h2><span>🔄</span> Changes to This Policy</h2>
-                    <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last Updated" date at the top of this page.</p>
-                    <p>We encourage you to review this page periodically. Continued use of NurulBayt after any changes constitutes your acceptance of the updated policy.</p>
-                </div>
-
-                <div class="legal-section-block" id="contact">
-                    <h2><span>📧</span> Contact Us</h2>
-                    <p>If you have any questions about this Privacy Policy or how we handle your data, please contact us:</p>
-                    <div class="legal-contact-box">
-                        <h3>🕌 NurulBayt</h3>
-                        <p>We take your privacy seriously and will respond to all privacy-related enquiries within 2 business days.</p>
-                        <a href="mailto:contact@nurulbayt.com">contact@nurulbayt.com</a><br><br>
-                        <a href="contact-us.html" class="btn-primary" style="margin-top:12px;display:inline-block;">Contact Form →</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+<article class="legal-body">
+    <div class="last-updated">📅 Last Updated: June 2026</div>
+    
+    <div class="toc-legal">
+        <h3>📖 Contents</h3>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#collection">Information We Collect</a></li>
+            <li><a href="#use">How We Use It</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#adsense">Google AdSense</a></li>
+            <li><a href="#third-party">Third Party Links</a></li>
+            <li><a href="#children">Children's Privacy</a></li>
+            <li><a href="#rights">Your Rights</a></li>
+            <li><a href="#changes">Policy Changes</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
     </div>
-</section>
 
-<!-- FOOTER -->
+    <section id="overview">
+        <h2>🔍 Overview</h2>
+        <p>Welcome to NurulBayt ("we", "us", or "our"). We operate the website at nurulbayt.github.io and are committed to protecting your privacy.</p>
+        <p>This Privacy Policy explains what information we collect when you visit NurulBayt, how we use it, and your rights regarding that information. By using our website, you agree to the practices described in this policy.</p>
+        <p><strong>🕌 Our commitment:</strong> NurulBayt is an Islamic parenting resource. We handle all user data with the same trust and responsibility we bring to our content — with sincerity, care, and transparency.</p>
+    </section>
+
+    <section id="collection">
+        <h2>📋 Information We Collect</h2>
+        <p>We collect minimal information to operate the website effectively:</p>
+        <ul>
+            <li><strong>Email address</strong> — if you subscribe to our newsletter voluntarily</li>
+            <li><strong>Contact form data</strong> — name, email, and message if you contact us</li>
+            <li><strong>Usage data</strong> — pages visited, time spent, browser type (via Google Analytics, anonymised)</li>
+            <li><strong>Cookie data</strong> — small files stored in your browser for functionality and analytics</li>
+        </ul>
+        <p>We do not collect sensitive personal information such as financial data, health information, or government ID numbers.</p>
+    </section>
+
+    <section id="use">
+        <h2>💡 How We Use Your Information</h2>
+        <p>Information collected is used solely for these purposes:</p>
+        <ul>
+            <li>Sending you newsletter emails if you have subscribed</li>
+            <li>Responding to your contact form messages</li>
+            <li>Analysing website traffic to improve our content</li>
+            <li>Displaying relevant advertisements via Google AdSense</li>
+            <li>Improving website performance and user experience</li>
+        </ul>
+        <p>We never sell, rent, or trade your personal information to third parties for their marketing purposes.</p>
+    </section>
+
+    <section id="cookies">
+        <h2> Cookies</h2>
+        <p>NurulBayt uses cookies — small text files stored on your device — for the following purposes:</p>
+        <ul>
+            <li><strong>Functionality cookies:</strong> Remembering your dark/light mode preference</li>
+            <li><strong>Analytics cookies:</strong> Google Analytics to understand how visitors use the site</li>
+            <li><strong>Advertising cookies:</strong> Google AdSense to display relevant advertisements</li>
+        </ul>
+        <p>You can control or disable cookies through your browser settings. Note that disabling cookies may affect some website functionality.</p>
+    </section>
+
+    <section id="adsense">
+        <h2>📢 Google AdSense</h2>
+        <p>NurulBayt may display advertisements provided by Google AdSense. Google uses cookies to serve ads based on your prior visits to our website and other websites on the internet.</p>
+        <p>Google's use of advertising cookies enables it and its partners to serve ads based on your visit to NurulBayt and/or other websites on the internet.</p>
+        <p>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
+    </section>
+
+    <section id="third-party">
+        <h2>🔗 Third Party Links</h2>
+        <p>NurulBayt articles may contain links to external websites. We are not responsible for the privacy practices or content of those external sites.</p>
+        <p>We recommend reviewing the privacy policy of any external website you visit through links on NurulBayt.</p>
+    </section>
+
+    <section id="children">
+        <h2>👶 Children's Privacy</h2>
+        <p>NurulBayt is an Islamic parenting resource intended for adult Muslim parents and caregivers. While our content is about children, it is written for adults.</p>
+        <p>We do not knowingly collect personal information from children under the age of 13. If you believe a child has provided us with personal information, please contact us immediately at <a href="mailto:noorwebsite01@gmail.com">noorwebsite01@gmail.com</a>.</p>
+    </section>
+
+    <section id="rights">
+        <h2>✅ Your Rights</h2>
+        <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+        <ul>
+            <li>The right to access information we hold about you</li>
+            <li>The right to correct inaccurate personal data</li>
+            <li>The right to request deletion of your personal data</li>
+            <li>The right to unsubscribe from our newsletter at any time</li>
+            <li>The right to opt out of analytics and advertising cookies</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:noorwebsite01@gmail.com">noorwebsite01@gmail.com</a>.</p>
+    </section>
+
+    <section id="changes">
+        <h2>🔄 Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last Updated" date at the top of this page.</p>
+        <p>We encourage you to review this page periodically. Continued use of NurulBayt after any changes constitutes your acceptance of the updated policy.</p>
+    </section>
+
+    <section id="contact">
+        <h2> Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy or how we handle your data, please contact us:</p>
+        <p>🕌 <strong>NurulBayt</strong><br/>
+        We take your privacy seriously and will respond to all privacy-related enquiries within 2 business days.</p>
+        <p><a href="mailto:noorwebsite01@gmail.com">noorwebsite01@gmail.com</a><br/>
+        <a href="contact-us.html">Contact Form →</a></p>
+    </section>
+</article>
+
 <footer class="footer" role="contentinfo">
     <div class="container">
+        <p class="footer-arabic">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</p>
+        <p class="footer-arabic-translation">"The best among you are those who learn the Quran and teach it." — Sahih Bukhari</p>
         <div class="footer-grid">
             <div>
-                <h3 class="logo" style="font-size:2rem;">🕌 <span>NurulBayt</span></h3>
-                <p style="color:rgba(255,255,255,.7);line-height:1.8;">Helping Muslim families raise righteous children through Quran and Sunnah based guidance.</p>
+                <h3 class="logo">🕌 <span>NurulBayt</span></h3>
+                <p style="color:rgba(255,255,255,.7);">Helping Muslim families raise righteous children.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
@@ -291,28 +194,29 @@
                 </ul>
             </div>
             <div>
-                <h4>Articles</h4>
+                <h4>Resources</h4>
                 <ul>
-                    <li><a href="article-1.html">Raise Children Who Love Allah</a></li>
-                    <li><a href="article-2.html">Teach Salah To Children</a></li>
-                    <li><a href="article-6.html">Quran Learning For Kids</a></li>
+                    <li><a href="raise-children-who-love-allah.html">Parenting</a></li>
+                    <li><a href="islamic-environment-at-home.html">Family Guide</a></li>
+                    <li><a href="quran-learning-enjoyable-kids.html">Quran Learning</a></li>
+                    <li><a href="teach-salah-to-children.html">Teaching Salah</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Legal</h4>
                 <ul>
                     <li><a href="privacy-policy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="terms-and-conditions.html">Terms</a></li>
                     <li><a href="disclaimer.html">Disclaimer</a></li>
                 </ul>
             </div>
         </div>
-        <hr style="border-color:rgba(255,255,255,.06);margin:0 0 30px;">
+        <hr>
         <div class="copyright">© 2026 NurulBayt · Made with ❤️ for Muslim families</div>
     </div>
 </footer>
 
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script src="script.js"></script>
 </body>
-    </html>
+</html>
