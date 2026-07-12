@@ -1,5 +1,13 @@
 // ===== DOM CONTENT LOADED =====
 document.addEventListener('DOMContentLoaded', function() {
+    // ===== PAGE LOAD PAR TOP PAR SCROLL KAREIN (KEY FIX) =====
+    setTimeout(function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+        });
+    }, 100);
+    
     // Add js-enabled class to body
     document.body.classList.add('js-enabled');
     
@@ -17,10 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressBar = document.getElementById('readingProgress');
     
     if (progressBar) {
-        window.addEventListener('scroll', () => {
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (window.scrollY / windowHeight) * 100;
-            progressBar.style.width = scrolled + '%';
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (window.scrollY / windowHeight) * 100;
+                    progressBar.style.width = scrolled + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     }
     
@@ -49,21 +64,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const backBtn = document.getElementById('backToTop');
     
     if (backBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backBtn.style.display = 'flex';
-                backBtn.style.opacity = '1';
-            } else {
-                backBtn.style.opacity = '0';
-                setTimeout(() => {
-                    if (window.scrollY <= 400) {
-                        backBtn.style.display = 'none';
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    if (window.scrollY > 400) {
+                        backBtn.style.display = 'flex';
+                        backBtn.style.opacity = '1';
+                    } else {
+                        backBtn.style.opacity = '0';
+                        setTimeout(() => {
+                            if (window.scrollY <= 400) {
+                                backBtn.style.display = 'none';
+                            }
+                        }, 300);
                     }
-                }, 300);
+                    ticking = false;
+                });
+                ticking = true;
             }
         });
         
-        backBtn.addEventListener('click', () => {
+        backBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -75,11 +97,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.getElementById('navbar');
     
     if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         });
     }
@@ -98,16 +127,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Toggle menu
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', function() {
             navMenu.classList.toggle('open');
             overlay.classList.toggle('active');
             menuBtn.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
             
+            // Prevent body scroll when menu is open
             document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
         });
         
         // Close on overlay click
-        overlay.addEventListener('click', () => {
+        overlay.addEventListener('click', function() {
             navMenu.classList.remove('open');
             overlay.classList.remove('active');
             menuBtn.textContent = '☰';
@@ -115,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Close on escape key
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && navMenu.classList.contains('open')) {
                 navMenu.classList.remove('open');
                 overlay.classList.remove('active');
@@ -125,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Close on link click
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        navMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
                 navMenu.classList.remove('open');
                 overlay.classList.remove('active');
                 menuBtn.textContent = '☰';
@@ -150,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
             darkModeBtn.textContent = '🌙';
         }
         
-        darkModeBtn.addEventListener('click', () => {
+        darkModeBtn.addEventListener('click', function() {
             body.classList.toggle('dark-mode');
             const isDark = body.classList.contains('dark-mode');
             
@@ -166,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (window.matchMedia) {
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
                 if (!localStorage.getItem('theme')) {
                     if (e.matches) {
                         body.classList.add('dark-mode');
@@ -183,8 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== COUNTER ANIMATION =====
     const counters = document.querySelectorAll('.counter');
     
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    const counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 const target = parseInt(entry.target.dataset.target);
                 const suffix = entry.target.dataset.suffix || '';
@@ -194,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let current = 0;
                 let step = 0;
                 
-                const timer = setInterval(() => {
+                const timer = setInterval(function() {
                     step++;
                     current = Math.min(Math.round(increment * step), target);
                     entry.target.textContent = current + suffix;
@@ -210,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.5 });
     
-    counters.forEach(el => counterObserver.observe(el));
+    counters.forEach(function(el) { counterObserver.observe(el); });
     
     // ===== FAQ TOGGLE =====
     window.toggleFAQ = function(el) {
@@ -218,10 +248,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
+    faqItems.forEach(function(item) {
         item.setAttribute('tabindex', '0');
         
-        item.addEventListener('keydown', (e) => {
+        item.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 item.classList.toggle('active');
@@ -234,27 +264,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const noResults = document.getElementById('noResults');
     
     if (searchInput) {
-        const debounce = (func, wait) => {
+        const debounce = function(func, wait) {
             let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
+            return function executedFunction() {
+                const args = arguments;
+                const later = function() {
                     clearTimeout(timeout);
-                    func(...args);
+                    func.apply(null, args);
                 };
                 clearTimeout(timeout);
                 timeout = setTimeout(later, wait);
             };
         };
         
-        const handleSearch = debounce((query) => {
+        const handleSearch = debounce(function(query) {
             query = query.toLowerCase().trim();
             const cards = document.querySelectorAll('.article-card');
             let visibleCount = 0;
             
-            cards.forEach(card => {
+            cards.forEach(function(card) {
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const desc = card.querySelector('p').textContent.toLowerCase();
-                const category = card.querySelector('.article-category')?.textContent.toLowerCase() || '';
+                const category = card.querySelector('.article-category') ? card.querySelector('.article-category').textContent.toLowerCase() : '';
                 
                 const matches = title.includes(query) || desc.includes(query) || category.includes(query);
                 
@@ -262,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.style.display = 'block';
                     if (query) {
                         card.style.transform = 'scale(1.02)';
-                        setTimeout(() => {
+                        setTimeout(function() {
                             card.style.transform = '';
                         }, 300);
                     }
@@ -285,13 +316,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 300);
         
-        searchInput.addEventListener('input', (e) => {
+        searchInput.addEventListener('input', function(e) {
             handleSearch(e.target.value);
         });
     }
     
     // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href !== '#') {
@@ -316,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.shareWhatsApp = function() {
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent(document.title);
-        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=600');
+        window.open('https://wa.me/?text=' + title + '%20' + url, '_blank', 'width=600,height=600');
         
         if (typeof gtag !== 'undefined') {
             gtag('event', 'share', {
@@ -329,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.shareFacebook = function() {
         const url = encodeURIComponent(window.location.href);
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank', 'width=600,height=400');
         
         if (typeof gtag !== 'undefined') {
             gtag('event', 'share', {
@@ -343,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.shareTwitter = function() {
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent(document.title);
-        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank', 'width=600,height=400');
+        window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'width=600,height=400');
         
         if (typeof gtag !== 'undefined') {
             gtag('event', 'share', {
@@ -357,11 +388,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.copyLink = function() {
         const url = window.location.href;
         
-        navigator.clipboard.writeText(url).then(() => {
+        navigator.clipboard.writeText(url).then(function() {
             const msg = document.getElementById('copiedMsg');
             if (msg) {
                 msg.classList.add('show');
-                setTimeout(() => {
+                setTimeout(function() {
                     msg.classList.remove('show');
                 }, 3000);
             }
@@ -372,12 +403,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.innerHTML = '✅ Copied!';
                 btn.style.background = '#10b981';
                 
-                setTimeout(() => {
+                setTimeout(function() {
                     btn.innerHTML = originalText;
                     btn.style.background = '';
                 }, 2000);
             }
-        }).catch(err => {
+        }).catch(function(err) {
             console.error('Failed to copy:', err);
             const textArea = document.createElement('textarea');
             textArea.value = url;
@@ -397,14 +428,14 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // ===== PERFORMANCE MONITORING =====
-    window.addEventListener('load', () => {
+    window.addEventListener('load', function() {
         const loadTime = performance.now();
-        console.log(`🚀 Page loaded in ${Math.round(loadTime)}ms`);
+        console.log('🚀 Page loaded in ' + Math.round(loadTime) + 'ms');
         
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_load', {
                 'event_category': 'performance',
-                'event_label': `${Math.round(loadTime)}ms`,
+                'event_label': Math.round(loadTime) + 'ms',
                 'value': Math.round(loadTime)
             });
         }
@@ -417,20 +448,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let maxScroll = 0;
     let scrollTracked = { 25: false, 50: false, 75: false, 100: false };
     
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', function() {
         const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
         
         if (scrollPercent > maxScroll) {
             maxScroll = scrollPercent;
             
-            [25, 50, 75, 100].forEach(threshold => {
+            [25, 50, 75, 100].forEach(function(threshold) {
                 if (scrollPercent >= threshold && !scrollTracked[threshold]) {
                     scrollTracked[threshold] = true;
                     
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'scroll_depth', {
                             'event_category': 'engagement',
-                            'event_label': `${threshold}%`,
+                            'event_label': threshold + '%',
                             'value': threshold
                         });
                     }
@@ -439,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    window.addEventListener('error', (e) => {
+    window.addEventListener('error', function(e) {
         console.error('Global error:', e.error);
         
         if (typeof gtag !== 'undefined') {
@@ -458,8 +489,8 @@ function initLazyLoading() {
     } else {
         const lazyImages = document.querySelectorAll('img[loading="lazy"]');
         
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        const imageObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     const img = entry.target;
                     if (img.dataset.src) {
@@ -470,7 +501,7 @@ function initLazyLoading() {
             });
         });
         
-        lazyImages.forEach(img => imageObserver.observe(img));
+        lazyImages.forEach(function(img) { imageObserver.observe(img); });
     }
 }
 
