@@ -1,6 +1,6 @@
 // ===== DOM CONTENT LOADED =====
 document.addEventListener('DOMContentLoaded', function() {
-    // ===== PAGE LOAD PAR TOP PAR SCROLL KAREIN (KEY FIX) =====
+    // ===== PAGE LOAD PAR TOP PAR SCROLL KAREIN =====
     setTimeout(function() {
         window.scrollTo({
             top: 0,
@@ -10,16 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add js-enabled class to body
     document.body.classList.add('js-enabled');
-    
-    // ===== MOBILE FALLBACK: Content ko visible karein =====
-    if (window.innerWidth <= 768) {
-        setTimeout(function() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(function(el) {
-                el.classList.add('active');
-            });
-        }, 300);
-    }
     
     // ===== READING PROGRESS BAR =====
     const progressBar = document.getElementById('readingProgress');
@@ -39,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== SCROLL REVEAL ANIMATION =====
+    // ===== SCROLL REVEAL ANIMATION (FIXED) =====
     const reveals = document.querySelectorAll('.reveal');
     
     try {
@@ -47,14 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target); // Performance: stop observing once active
                 }
             });
         }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
         });
         
-        reveals.forEach(el => revealObserver.observe(el));
+        reveals.forEach(el => {
+            // FIX: Check if element is already in viewport on load
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                el.classList.add('active'); // Force show immediately if already on screen
+            } else {
+                revealObserver.observe(el);
+            }
+        });
     } catch (error) {
         // Fallback: saare elements visible kar dein
         reveals.forEach(el => el.classList.add('active'));
@@ -118,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('navMenu');
     
     if (menuBtn && navMenu) {
-        // Create overlay if not exists
         let overlay = document.querySelector('.nav-overlay');
         if (!overlay) {
             overlay = document.createElement('div');
@@ -126,17 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.appendChild(overlay);
         }
         
-        // Toggle menu
         menuBtn.addEventListener('click', function() {
             navMenu.classList.toggle('open');
             overlay.classList.toggle('active');
             menuBtn.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
-            
-            // Prevent body scroll when menu is open
             document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
         });
         
-        // Close on overlay click
         overlay.addEventListener('click', function() {
             navMenu.classList.remove('open');
             overlay.classList.remove('active');
@@ -144,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         });
         
-        // Close on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && navMenu.classList.contains('open')) {
                 navMenu.classList.remove('open');
@@ -154,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close on link click
         navMenu.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('open');
@@ -259,11 +251,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== SEARCH FUNCTIONALITY =====
+    // ===== SEARCH FUNCTIONALITY (FIXED) =====
     const searchInput = document.getElementById('searchInput');
     const noResults = document.getElementById('noResults');
     
-    if (searchInput) {
+    if (searchInput && noResults) {
+        // FIX: Page load par explicitly hide karein agar articles mojood hain
+        const initialCards = document.querySelectorAll('.article-card');
+        if (initialCards.length > 0) {
+            noResults.style.display = 'none';
+        }
+
         const debounce = function(func, wait) {
             let timeout;
             return function executedFunction() {
@@ -283,8 +281,8 @@ document.addEventListener('DOMContentLoaded', function() {
             let visibleCount = 0;
             
             cards.forEach(function(card) {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
+                const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+                const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
                 const category = card.querySelector('.article-category') ? card.querySelector('.article-category').textContent.toLowerCase() : '';
                 
                 const matches = title.includes(query) || desc.includes(query) || category.includes(query);
@@ -304,10 +302,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (noResults) {
-                noResults.style.display = visibleCount === 0 && query ? 'block' : 'none';
+                noResults.style.display = (visibleCount === 0 && query.length > 0) ? 'block' : 'none';
             }
             
-            if (query && typeof gtag !== 'undefined') {
+            if (query.length > 0 && typeof gtag !== 'undefined') {
                 gtag('event', 'search', {
                     'event_category': 'engagement',
                     'event_label': query,
@@ -331,12 +329,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (target) {
                     const offsetTop = target.offsetTop - 80;
-                    
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
                     });
-                    
                     history.pushState(null, null, href);
                 }
             }
@@ -348,41 +344,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent(document.title);
         window.open('https://wa.me/?text=' + title + '%20' + url, '_blank', 'width=600,height=600');
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'share', {
-                'method': 'whatsapp',
-                'content_type': 'article',
-                'item_id': window.location.pathname
-            });
-        }
     };
     
     window.shareFacebook = function() {
         const url = encodeURIComponent(window.location.href);
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank', 'width=600,height=400');
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'share', {
-                'method': 'facebook',
-                'content_type': 'article',
-                'item_id': window.location.pathname
-            });
-        }
     };
     
     window.shareTwitter = function() {
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent(document.title);
         window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'width=600,height=400');
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'share', {
-                'method': 'twitter',
-                'content_type': 'article',
-                'item_id': window.location.pathname
-            });
-        }
     };
     
     window.copyLink = function() {
@@ -417,28 +389,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.execCommand('copy');
             document.body.removeChild(textArea);
         });
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'share', {
-                'method': 'copy_link',
-                'content_type': 'article',
-                'item_id': window.location.pathname
-            });
-        }
     };
     
     // ===== PERFORMANCE MONITORING =====
     window.addEventListener('load', function() {
         const loadTime = performance.now();
         console.log('🚀 Page loaded in ' + Math.round(loadTime) + 'ms');
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_load', {
-                'event_category': 'performance',
-                'event_label': Math.round(loadTime) + 'ms',
-                'value': Math.round(loadTime)
-            });
-        }
         
         if (loadTime > 3000) {
             console.warn('⚠️ Page load time is slow (>3s)');
@@ -457,26 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
             [25, 50, 75, 100].forEach(function(threshold) {
                 if (scrollPercent >= threshold && !scrollTracked[threshold]) {
                     scrollTracked[threshold] = true;
-                    
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'scroll_depth', {
-                            'event_category': 'engagement',
-                            'event_label': threshold + '%',
-                            'value': threshold
-                        });
-                    }
                 }
-            });
-        }
-    });
-    
-    window.addEventListener('error', function(e) {
-        console.error('Global error:', e.error);
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'exception', {
-                'description': e.error.toString(),
-                'fatal': false
             });
         }
     });
@@ -488,7 +425,6 @@ function initLazyLoading() {
         console.log('✅ Native lazy loading supported');
     } else {
         const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        
         const imageObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
@@ -500,7 +436,6 @@ function initLazyLoading() {
                 }
             });
         });
-        
         lazyImages.forEach(function(img) { imageObserver.observe(img); });
     }
 }
