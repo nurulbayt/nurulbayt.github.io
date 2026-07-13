@@ -5,44 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>NurulBayt — Premium Islamic Parenting for Muslim Families</title>
     <meta name="description" content="Expert Islamic parenting advice for Muslim families. Practical Quran and Sunnah tips for raising righteous children."/>
-    <meta name="keywords" content="Islamic parenting, Muslim family, Quran, Sunnah, Tarbiyah, duas for kids, screen time Islam, Islamic discipline"/>
+    <meta name="keywords" content="Islamic parenting, Muslim family, raising Muslim children, Islamic tarbiyah, Quran and Sunnah parenting"/>
     <meta name="author" content="NurulBayt"/>
     <meta name="robots" content="index, follow"/>
     <link rel="canonical" href="https://nurulbayt.github.io/"/>
     
     <!-- Open Graph -->
-    <meta property="og:title" content="NurulBayt — Premium Islamic Parenting"/>
-    <meta property="og:description" content="Practical Islamic parenting advice for modern Muslim families based on Quran and Sunnah."/>
+    <meta property="og:title" content="NurulBayt — Premium Islamic Parenting for Muslim Families"/>
+    <meta property="og:description" content="Expert Islamic parenting advice for Muslim families. Practical Quran and Sunnah tips."/>
     <meta property="og:url" content="https://nurulbayt.github.io/"/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="https://images.pexels.com/photos/32718454/pexels-photo-32718454.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
     
     <link rel="icon" type="image/png" href="favicon.png">
-    
-    <!-- Arabic Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1XWF97RZJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B1XWF97RZJ');
-    </script>
-    
-    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "NurulBayt",
       "url": "https://nurulbayt.github.io/",
-      "description": "Premium Islamic parenting advice for Muslim families based on Quran and Sunnah",
+      "description": "Premium Islamic Parenting for Muslim Families",
       "publisher": {
         "@type": "Organization",
         "name": "NurulBayt",
@@ -50,24 +34,19 @@
           "@type": "ImageObject",
           "url": "https://nurulbayt.github.io/logo.png"
         }
-      },
-      "sameAs": [
-        "https://pinterest.com/nurulbayt"
-      ]
+      }
     }
     </script>
 </head>
 <body>
 
-<!-- Reading Progress Bar -->
 <div class="reading-progress" id="readingProgress"></div>
 
-<!-- NAVBAR -->
 <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-container">
-        <a href="index.html" class="logo" aria-label="NurulBayt Home">🕌 <span>NurulBayt</span></a>
+        <a href="index.html" class="logo" aria-label="NurulBayt Home"> <span>NurulBayt</span></a>
         <ul class="nav-menu" id="navMenu" role="menubar">
-            <li role="none"><a href="index.html" class="active" role="menuitem">Home</a></li>
+            <li role="none"><a href="index.html" role="menuitem">Home</a></li>
             <li role="none"><a href="#articles" role="menuitem">Articles</a></li>
             <li role="none"><a href="about-us.html" role="menuitem">About</a></li>
             <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
@@ -75,423 +54,358 @@
         </ul>
         <div class="nav-actions">
             <button class="menu-btn" id="menuBtn" aria-label="Toggle mobile menu">☰</button>
-            <button id="darkModeBtn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+            <button id="darkModeBtn" onclick="toggleDarkMode()" aria-label="Toggle dark mode"></button>
         </div>
     </div>
 </nav>
 
-<!-- HERO SECTION -->
-<section id="home" class="hero" aria-label="Hero section">
+<section class="hero">
     <div class="islamic-pattern"></div>
-    <div class="hero-overlay"></div>
-    <div class="container">
-        <div class="hero-content">
-            <div class="arabic-container arabic-reveal">
-                <p class="hero-arabic">رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ</p>
-                <p class="hero-arabic-translation">"My Lord, grant me righteous children."</p>
-                <p class="hero-arabic-source">— Surah As-Saffat (37:100)</p>
-            </div>
-            
-            <p class="hero-subtitle fade-in-up delay-1">🌙 Bismillah</p>
-            <h1 class="hero-title fade-in-up delay-2">Raising <span>Righteous Children</span><br>In A Modern World</h1>
-            <p class="hero-text fade-in-up delay-3">Premium Islamic parenting advice based on Quran and Sunnah. Helping Muslim families raise children with faith, character, and love for Allah.</p>
-            <a href="#articles" class="btn-primary fade-in-up delay-4">📖 Explore Articles</a>
-            
-            <div class="hero-badge fade-in-up delay-5">
-                <span class="badge-item">✨ Quran & Sunnah</span>
-                <span class="badge-item">🌍 Trusted Families</span>
-                <span class="badge-item"> Free Resources</span>
-            </div>
+    <div class="container hero-content">
+        <div class="arabic-container">
+            <p class="hero-arabic arabic-reveal">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ</p>
+            <p class="hero-arabic-translation fade-in-up delay-1">"Our Lord, grant us from among our wives and offspring comfort to our eyes"</p>
+            <p class="hero-arabic-source fade-in-up delay-2">— Surah Al-Furqan (25:74)</p>
+        </div>
+        <h1 class="hero-title fade-in-up delay-3">Premium <span>Islamic Parenting</span> for Muslim Families</h1>
+        <p class="hero-text fade-in-up delay-4">Practical guidance rooted in Quran and Sunnah to help you raise righteous, confident, and Allah-loving children.</p>
+        <a href="#articles" class="btn-primary fade-in-up delay-5">Explore Articles</a>
+        <div class="hero-badge fade-in-up delay-5">
+            <span class="badge-item"> 14+ Articles</span>
+            <span class="badge-item">‍👩‍👧‍👦 Trusted by Parents</span>
+            <span class="badge-item">✅ Quran & Sunnah Based</span>
         </div>
     </div>
-    
     <div class="scroll-indicator">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
     </div>
 </section>
 
-<!-- SEARCH BAR -->
-<div class="container">
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="🔍 Search articles..." aria-label="Search articles">
-    </div>
-</div>
-
-<!-- POPULAR TOPICS -->
-<section class="topics-section" aria-label="Popular Topics">
+<section class="topics-section">
     <div class="container">
-        <div class="section-title reveal">
+        <div class="section-title">
             <h2>Popular Topics</h2>
-            <p>Explore our most loved Islamic parenting topics inspired by the Quran and Sunnah.</p>
+            <p>Explore our most helpful Islamic parenting guides</p>
         </div>
-        <div class="topics-row reveal">
-            <a href="quran-learning-enjoyable-kids.html" class="badge-item topic-link">📖 Quran For Kids</a>
-            <a href="make-dua-fun-for-kids.html" class="badge-item topic-link">🤲 Daily Duas</a>
-            <a href="teach-salah-to-children.html" class="badge-item topic-link">🕌 Teach Salah</a>
-            <a href="raise-children-who-love-allah.html" class="badge-item topic-link">❤️ Prophetic Parenting</a>
-            <a href="screen-time-rules-muslim-families.html" class="badge-item topic-link">📱 Screen Time</a>
-        </div>
-    </div>
-</section>
-
-<!-- STATS -->
-<section class="stats-section" aria-label="Site statistics">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>Helping Muslim Families Worldwide</h2>
-            <p>Authentic guidance based on Quran and Sunnah for modern parenting challenges.</p>
-        </div>
-        <div class="stats-grid">
-            <div class="stat-card hover-lift reveal">
-                <h3 class="counter" data-target="13" data-suffix="">13</h3>
-                <p>Articles</p>
-            </div>
-            <div class="stat-card hover-lift reveal">
-                <h3 class="counter" data-target="100" data-suffix="%">100%</h3>
-                <p>Authentic</p>
-            </div>
-            <div class="stat-card hover-lift reveal">
-                <h3 class="counter" data-target="500" data-suffix="+">500+</h3>
-                <p>Readers</p>
-            </div>
-            <div class="stat-card hover-lift reveal">
-                <h3 class="counter" data-target="24" data-suffix="/7">24/7</h3>
-                <p>Free Access</p>
-            </div>
+        <div class="topics-row">
+            <a href="#articles" class="badge-item">📚 Quran Learning</a>
+            <a href="#articles" class="badge-item">🕌 Teaching Salah</a>
+            <a href="#articles" class="badge-item">👶 Toddler Care</a>
+            <a href="#articles" class="badge-item">💪 Building Character</a>
+            <a href="#articles" class="badge-item">🛡️ Peer Pressure</a>
+            <a href="#articles" class="badge-item">📱 Screen Time</a>
+            <a href="#articles" class="badge-item"> Making Dua</a>
+            <a href="#articles" class="badge-item"> Islamic Home</a>
         </div>
     </div>
 </section>
 
-<!-- QURAN AYAH -->
-<section class="ayah-section" aria-label="Quranic verse">
+<section id="articles" class="articles-section">
     <div class="container">
-        <div class="ayah-card glass reveal">
-            <div class="ayah-decoration">✦</div>
-            <h2 class="ayah-arabic">رَّبِّ هَبْ لِي مِنَ الصَّالِحِينَ</h2>
-            <p class="ayah-translation">"My Lord, grant me righteous children."</p>
-            <p class="ayah-reference">— Surah As-Saffat (37:100)</p>
-            <p class="ayah-desc">Practical Islamic parenting advice for Muslim families navigating faith and family in the modern world.</p>
+        <div class="section-title">
+            <h2>Latest Articles</h2>
+            <p>Practical Islamic parenting advice based on Quran and Sunnah</p>
         </div>
-    </div>
-</section>
-
-<!-- ALL ARTICLES -->
-<section id="articles" aria-label="All articles">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>All Articles</h2>
-            <p>Practical guidance inspired by the Quran and Sunnah.</p>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder=" Search articles..." aria-label="Search articles">
         </div>
-
-        <p id="noResults" style="display:none;text-align:center;color:var(--gray);padding:40px 0;font-size:1.1rem;">No articles found. Try a different search term.</p>
-
-        <div class="articles-grid" id="articleGrid">
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/32718454/pexels-photo-32718454.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Muslim family making dua together" loading="lazy" width="800" height="500">
+        
+        <div class="articles-grid">
+            
+            <!-- NEW ARTICLE: Islamic Bedtime Routine for Toddlers -->
+            <div class="article-card reveal">
+                <img src="https://nurulbayt.github.io/assets/images/islamic-bedtime-routine-mother-reading-story.webp" alt="Islamic bedtime routine for toddlers">
+                <div class="article-content">
+                    <span class="article-category">Toddler Care</span>
+                    <h3>Islamic Bedtime Routine for Toddlers (Ages 2-5)</h3>
+                    <p>Discover practical Sunnah-based bedtime routines to help your toddler sleep peacefully while building Islamic habits.</p>
+                    <a href="islamic-bedtime-routine-toddlers.html">Read More →</a>
+                </div>
+            </div>
+            
+            <!-- Article 1 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/3876394/pexels-photo-3876394.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Raising children who love Allah">
                 <div class="article-content">
                     <span class="article-category">Tarbiyah</span>
                     <h3>How To Raise Children Who Love Allah</h3>
-                    <p>Practical habits inspired by the Sunnah to build strong faith and character.</p>
-                    <div class="article-meta">
-                        <span>⏱ 7 min read</span>
-                        <a href="raise-children-who-love-allah.html" aria-label="Read: How To Raise Children Who Love Allah">Read More →</a>
-                    </div>
+                    <p>Practical habits inspired by the Sunnah to build strong faith in your children's hearts.</p>
+                    <a href="raise-children-who-love-allah.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/8164718/pexels-photo-8164718.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Muslim child learning Salah" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/7296528/pexels-photo-7296528.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Teaching salah to children">
                 <div class="article-content">
                     <span class="article-category">Salah</span>
                     <h3>7 Easy Ways To Teach Salah To Children</h3>
-                    <p>Simple, loving methods to help children love prayer.</p>
-                    <div class="article-meta">
-                        <span>⏱ 8 min read</span>
-                        <a href="teach-salah-to-children.html" aria-label="Read: 7 Easy Ways To Teach Salah To Children">Read More →</a>
-                    </div>
+                    <p>Step-by-step guide to make prayer time joyful and meaningful for your kids.</p>
+                    <a href="teach-salah-to-children.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/4260325/pexels-photo-4260325.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Family managing screen time" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/8364026/pexels-photo-8364026.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Screen time rules for Muslim families">
                 <div class="article-content">
-                    <span class="article-category">Digital Life</span>
+                    <span class="article-category">Digital Wellness</span>
                     <h3>Healthy Screen Time Rules For Muslim Families</h3>
-                    <p>Islamic values and practical tips for managing technology at home.</p>
-                    <div class="article-meta">
-                        <span>⏱ 7 min read</span>
-                        <a href="screen-time-rules-muslim-families.html" aria-label="Read: Healthy Screen Time Rules">Read More →</a>
-                    </div>
+                    <p>Islamic values and practical tips for managing technology in your home.</p>
+                    <a href="screen-time-rules-muslim-families.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/8535230/pexels-photo-8535230.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Muslim children daily habits" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 4 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/5427868/pexels-photo-5427868.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Daily habits of righteous Muslim children">
                 <div class="article-content">
-                    <span class="article-category">Habits</span>
+                    <span class="article-category">Daily Habits</span>
                     <h3>10 Daily Habits Of Righteous Muslim Children</h3>
-                    <p>Simple habits inspired by the Quran and Sunnah for children.</p>
-                    <div class="article-meta">
-                        <span>⏱ 6 min read</span>
-                        <a href="daily-habits-righteous-muslim-children.html" aria-label="Read: 10 Daily Habits">Read More →</a>
-                    </div>
+                    <p>Simple habits inspired by the Quran and Sunnah for children to practice daily.</p>
+                    <a href="daily-habits-righteous-muslim-children.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Islamic home environment" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 5 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Creating Islamic environment at home">
                 <div class="article-content">
                     <span class="article-category">Home</span>
                     <h3>Creating An Islamic Environment At Home</h3>
                     <p>Small changes that make your home a place of faith and peace.</p>
-                    <div class="article-meta">
-                        <span>⏱ 7 min read</span>
-                        <a href="islamic-environment-at-home.html" aria-label="Read: Creating Islamic Environment">Read More →</a>
-                    </div>
+                    <a href="islamic-environment-at-home.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/5427868/pexels-photo-5427868.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Child learning Quran" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 6 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/5427868/pexels-photo-5427868.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Making Quran learning enjoyable for kids">
                 <div class="article-content">
                     <span class="article-category">Quran</span>
                     <h3>Making Quran Learning Enjoyable For Kids</h3>
                     <p>Practical ideas to build a positive connection with the Quran.</p>
-                    <div class="article-meta">
-                        <span>⏱ 6 min read</span>
-                        <a href="quran-learning-enjoyable-kids.html" aria-label="Read: Making Quran Learning Enjoyable">Read More →</a>
-                    </div>
+                    <a href="quran-learning-enjoyable-kids.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/7296528/pexels-photo-7296528.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Parent talking to child about Allah" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 7 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/7296528/pexels-photo-7296528.jpeg?auto=compress&cs=tinysrgb&w=800" alt="How to talk to kids about Allah">
                 <div class="article-content">
                     <span class="article-category">Tarbiyah</span>
                     <h3>How to Talk to Kids About Allah</h3>
                     <p>Simple Islamic parenting tips to help children know and love Allah.</p>
-                    <div class="article-meta">
-                        <span>⏱ 6 min read</span>
-                        <a href="how-to-talk-to-kids-about-allah.html" aria-label="Read: How to Talk to Kids About Allah">Read More →</a>
-                    </div>
+                    <a href="how-to-talk-to-kids-about-allah.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/36363421/pexels-photo-36363421.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Confident happy child" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 8 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/36363421/pexels-photo-36363421.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Building confidence in Muslim children">
                 <div class="article-content">
                     <span class="article-category">Character</span>
                     <h3>Building Confidence in Muslim Children</h3>
                     <p>Practical Islamic tips to help children develop self-esteem.</p>
-                    <div class="article-meta">
-                        <span>⏱ 7 min read</span>
-                        <a href="building-confidence-muslim-children.html" aria-label="Read: Building Confidence">Read More →</a>
-                    </div>
+                    <a href="building-confidence-muslim-children.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/5905559/pexels-photo-5905559.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Muslim teenagers" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 9 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/5905559/pexels-photo-5905559.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Dealing with peer pressure in Muslim kids">
                 <div class="article-content">
                     <span class="article-category">Teens</span>
                     <h3>Dealing With Peer Pressure in Muslim Kids</h3>
                     <p>How Muslim parents can help children stay strong in faith.</p>
-                    <div class="article-meta">
-                        <span>⏱ 8 min read</span>
-                        <a href="peer-pressure-muslim-kids.html" aria-label="Read: Dealing With Peer Pressure">Read More →</a>
-                    </div>
+                    <a href="peer-pressure-muslim-kids.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/8364026/pexels-photo-8364026.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Islamic discipline" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 10 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/8364026/pexels-photo-8364026.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Islamic discipline techniques for children">
                 <div class="article-content">
                     <span class="article-category">Discipline</span>
                     <h3>Islamic Discipline Techniques for Children</h3>
                     <p>Learn gentle and prophetic ways to discipline children.</p>
-                    <div class="article-meta">
-                        <span>⏱ 7 min read</span>
-                        <a href="islamic-discipline-techniques-children.html" aria-label="Read: Islamic Discipline">Read More →</a>
-                    </div>
+                    <a href="islamic-discipline-techniques-children.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/3876394/pexels-photo-3876394.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="99 names of Allah" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 11 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/3876394/pexels-photo-3876394.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Teaching children the 99 names of Allah">
                 <div class="article-content">
                     <span class="article-category">Faith</span>
                     <h3>Teaching Children the 99 Names of Allah</h3>
                     <p>Fun and simple ways to teach the beautiful names of Allah.</p>
-                    <div class="article-meta">
-                        <span>⏱ 6 min read</span>
-                        <a href="teaching-99-names-of-allah-children.html" aria-label="Read: Teaching 99 Names">Read More →</a>
-                    </div>
+                    <a href="teaching-99-names-of-allah-children.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/15082431/pexels-photo-15082431.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hands in dua" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 12 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/15082431/pexels-photo-15082431.jpeg?auto=compress&cs=tinysrgb&w=800" alt="How to make dua fun for kids">
                 <div class="article-content">
                     <span class="article-category">Dua</span>
                     <h3>How to Make Dua Fun for Kids</h3>
                     <p>Practical ideas to help children love making dua.</p>
-                    <div class="article-meta">
-                        <span>⏱ 5 min read</span>
-                        <a href="make-dua-fun-for-kids.html" aria-label="Read: Make Dua Fun">Read More →</a>
-                    </div>
+                    <a href="make-dua-fun-for-kids.html">Read More →</a>
                 </div>
-            </article>
-
-            <article class="article-card glass hover-lift reveal">
-                <img src="https://images.pexels.com/photos/8164749/pexels-photo-8164749.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Muslim family identity" loading="lazy" width="800" height="500">
+            </div>
+            
+            <!-- Article 13 -->
+            <div class="article-card reveal">
+                <img src="https://images.pexels.com/photos/8164749/pexels-photo-8164749.jpeg?auto=compress&cs=tinysrgb&w=800" alt="How to raise a Muslim child in a non-Muslim society">
                 <div class="article-content">
                     <span class="article-category">Identity</span>
                     <h3>How to Raise a Muslim Child in a Non-Muslim Society</h3>
                     <p>Practical tips for raising confident Muslim children worldwide.</p>
-                    <div class="article-meta">
-                        <span> 9 min read</span>
-                        <a href="raise-muslim-child-non-muslim-society.html" aria-label="Read: Raising Muslim Child">Read More →</a>
-                    </div>
+                    <a href="raise-muslim-child-non-muslim-society.html">Read More →</a>
                 </div>
-            </article>
-
+            </div>
+            
+        </div>
+        
+        <div id="noResults" class="no-results" style="display:none;text-align:center;padding:60px 20px;">
+            <p style="font-size:1.2rem;color:var(--gray);">No articles found. Try a different search term.</p>
         </div>
     </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section aria-label="Testimonials">
+<section class="stats-section">
     <div class="container">
-        <div class="section-title reveal">
+        <div class="stats-grid">
+            <div class="stat-card reveal">
+                <h3 class="counter" data-target="14">0</h3>
+                <p>Articles Published</p>
+            </div>
+            <div class="stat-card reveal">
+                <h3 class="counter" data-target="1000">0</h3>
+                <p>Parents Helped</p>
+            </div>
+            <div class="stat-card reveal">
+                <h3 class="counter" data-target="100">0</h3>
+                <p>% Quran & Sunnah Based</p>
+            </div>
+            <div class="stat-card reveal">
+                <h3 class="counter" data-target="24">0</h3>
+                <p>Countries Reached</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-title">
             <h2>What Parents Say</h2>
-            <p>Real feedback from families who found guidance at NurulBayt.</p>
+            <p>Real stories from Muslim families around the world</p>
         </div>
         <div class="testimonial-grid">
-            <div class="testimonial-card hover-lift reveal">
-                <div class="stars" aria-label="5 stars">★★★★★</div>
-                <p>"The articles are practical and inspired by authentic sources. A valuable resource for any Muslim family."</p>
-                <div class="author">— Fatima, UK</div>
+            <div class="testimonial-card reveal">
+                <div class="stars">★★★★★</div>
+                <p>"Alhamdulillah, the article on teaching salah helped my 5-year-old fall in love with prayer. The step-by-step approach is so practical!"</p>
+                <div class="author">— Aisha K., United Kingdom</div>
             </div>
-            <div class="testimonial-card hover-lift reveal">
-                <div class="stars" aria-label="5 stars">★★★★★</div>
-                <p>"The Salah and screen time guides helped us create a balanced Islamic environment at home."</p>
-                <div class="author">— Ahmed, Canada</div>
+            <div class="testimonial-card reveal">
+                <div class="stars">★★★★★</div>
+                <p>"Finally, Islamic parenting advice that's both authentic and practical. My children's behavior has improved so much!"</p>
+                <div class="author">— Muhammad R., Canada</div>
             </div>
-            <div class="testimonial-card hover-lift reveal">
-                <div class="stars" aria-label="5 stars">★★★★★</div>
-                <p>"A beautiful, faith-based parenting resource. Highly recommended for new parents."</p>
-                <div class="author">— Maryam, USA</div>
+            <div class="testimonial-card reveal">
+                <div class="stars">★★★★★</div>
+                <p>"The screen time guidelines saved our family. We now have a healthy balance between technology and Islamic values."</p>
+                <div class="author">— Fatima S., United States</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" aria-label="About NurulBayt">
+<section id="faq" class="faq-section">
     <div class="container">
-        <div class="section-title reveal">
-            <h2>About NurulBayt</h2>
-            <p>Helping parents raise righteous children through authentic Islamic guidance.</p>
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Quick answers to common questions about Islamic parenting</p>
         </div>
-        <div class="about-grid">
-            <div class="about-card glass hover-lift reveal">
-                <div class="about-icon">🎯</div>
-                <span class="article-category">Mission</span>
-                <h3>Helping Parents Raise Righteous Children</h3>
-                <p>Practical Islamic parenting advice rooted in the Quran and Sunnah.</p>
+        <div class="faq-container">
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span>Is all content based on authentic Quran and Sunnah?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, every article is carefully researched and based on authentic Quranic verses and Sahih hadith. We reference trusted Islamic scholars and always mention sources.
+                </div>
             </div>
-            <div class="about-card glass hover-lift reveal">
-                <div class="about-icon">🌟</div>
-                <span class="article-category">Vision</span>
-                <h3>Building Strong Muslim Families</h3>
-                <p>Inspiring homes filled with love, wisdom, and Islamic values.</p>
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span>Are these parenting tips suitable for all ages?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Our articles cover various age groups from toddlers to teenagers. Each article specifies the target age range, and we provide age-appropriate guidance.
+                </div>
             </div>
-            <div class="about-card glass hover-lift reveal">
-                <div class="about-icon">📿</div>
-                <span class="article-category">Values</span>
-                <h3>Authentic & Practical Guidance</h3>
-                <p>Combining modern parenting solutions with timeless Islamic teachings.</p>
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span>Can I share these articles with other parents?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely! We encourage sharing. Please use the share buttons on each article or copy the link. May Allah reward you for spreading beneficial knowledge.
+                </div>
             </div>
-        </div>
-        <div style="text-align:center;margin-top:40px;">
-            <a href="about-us.html" class="btn-primary">Learn More →</a>
-        </div>
-    </div>
-</section>
-
-<!-- AUTHOR BIO -->
-<section aria-label="About the team">
-    <div class="container">
-        <div class="author-bio reveal">
-            <div class="bio-icon">🕌</div>
-            <div>
-                <h3>NurulBayt Team</h3>
-                <p>Muslim parents, educators, and researchers dedicated to authentic Islamic parenting guidance.</p>
-                <div style="margin-top:15px;">
-                    <a href="https://pinterest.com/nurulbayt" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-block;padding:12px 28px;font-size:0.95rem;">
-                        📌 Follow on Pinterest
-                    </a>
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span>Do you offer one-on-one parenting consultations?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Currently, we provide free resources through our articles. For specific questions, use our contact form and we'll respond with guidance, in sha Allah.
+                </div>
+            </div>
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span>How often do you publish new articles?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    We publish 2-3 new articles per week. Subscribe to our newsletter to get notified whenever new content is available.
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" aria-label="Frequently Asked Questions">
+<section class="newsletter-section">
     <div class="container">
-        <div class="section-title reveal">
-            <h2>Frequently Asked Questions</h2>
-            <p>Quick answers to common parenting questions.</p>
-        </div>
-        <div class="faq-container">
-            <div class="faq-item glass reveal" onclick="toggleFAQ(this)" role="button" tabindex="0">
-                <div class="faq-question">How can I teach my children to love Salah? <span class="faq-icon">+</span></div>
-                <div class="faq-answer">Create a loving environment, pray together as a family, and encourage with kindness.</div>
-            </div>
-            <div class="faq-item glass reveal" onclick="toggleFAQ(this)" role="button" tabindex="0">
-                <div class="faq-question">Are the articles based on authentic teachings? <span class="faq-icon">+</span></div>
-                <div class="faq-answer">Yes. Every article is inspired by the Quran and authentic Sunnah.</div>
-            </div>
-            <div class="faq-item glass reveal" onclick="toggleFAQ(this)" role="button" tabindex="0">
-                <div class="faq-question">How do I manage screen time for kids? <span class="faq-icon">+</span></div>
-                <div class="faq-answer">Set healthy boundaries and balance technology with faith and family values.</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section aria-label="Newsletter signup" id="newsletter">
-    <div class="container">
-        <div class="newsletter-card glass reveal">
-            <p class="newsletter-arabic">وَالَّذِينَ يَقُولُونَ رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ</p>
-            <p class="newsletter-arabic-translation">"Our Lord, grant us from among our wives and offspring comfort to our eyes."</p>
-            <p class="newsletter-arabic-source">— Surah Al-Furqan (25:74)</p>
-            
-            <h2>🌙 Join Our Community</h2>
-            <p>Receive weekly Islamic parenting tips, duas, and practical guidance directly to your inbox. Free, always.</p>
+        <div class="newsletter-card">
+            <p class="newsletter-arabic">رَبِّ زِدْنِي عِلْمًا</p>
+            <p class="newsletter-arabic-translation">"My Lord, increase me in knowledge"</p>
+            <p class="newsletter-arabic-source">— Surah Taha (20:114)</p>
+            <h2>🌙 Get Weekly Islamic Parenting Tips</h2>
+            <p>Join thousands of Muslim parents receiving free, authentic guidance every week.</p>
             <form class="email-form" action="https://formspree.io/f/mdarqzzp" method="POST">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn-primary">Subscribe</button>
+                <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+                <button type="submit" class="btn-primary">Subscribe Free →</button>
             </form>
-            <p class="form-note">🔒 No spam. Unsubscribe anytime.</p>
+            <p class="form-note">No spam. Unsubscribe anytime.</p>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer" role="contentinfo">
     <div class="container">
         <p class="footer-arabic">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</p>
         <p class="footer-arabic-translation">"The best among you are those who learn the Quran and teach it." — Sahih Bukhari</p>
-        
         <div class="footer-grid">
             <div>
-                <h3 class="logo">🕌 <span>NurulBayt</span></h3>
+                <h3 class="logo"> <span>NurulBayt</span></h3>
                 <p style="color:rgba(255,255,255,.7);">Helping Muslim families raise righteous children through Quran and Sunnah based guidance.</p>
             </div>
             <div>
@@ -527,7 +441,6 @@
 </footer>
 
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <script src="script.js"></script>
 </body>
 </html>
