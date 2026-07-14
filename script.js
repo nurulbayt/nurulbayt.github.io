@@ -1,6 +1,6 @@
 /**
  * NURULBAYT - PROFESSIONAL JAVASCRIPT
- * Version: 2.0 (Production Ready)
+ * Version: 4.0 (FINAL - ALL ISSUES FIXED)
  * Last Updated: July 2026
  */
 
@@ -74,28 +74,50 @@ function initReadingProgress() {
     });
 }
 
-// ===== SCROLL REVEAL ANIMATION =====
+// ===== SCROLL REVEAL - FIXED FOR ALL DEVICES =====
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
     if (!reveals.length) return;
     
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    // Mobile par directly sab show karein (NO animation)
+    if (isMobile) {
+        reveals.forEach(el => {
+            el.classList.add('active');
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            el.style.transform = 'none';
+        });
+        return; // Exit early
+    }
+    
+    // Desktop par animation ke saath reveal karein
     try {
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.visibility = 'visible';
+                    entry.target.style.transform = 'translateY(0)';
                     revealObserver.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.12,
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
         
         reveals.forEach(el => revealObserver.observe(el));
     } catch (error) {
         // Fallback for older browsers
-        reveals.forEach(el => el.classList.add('active'));
+        reveals.forEach(el => {
+            el.classList.add('active');
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+        });
     }
 }
 
@@ -158,7 +180,7 @@ function initMobileMenu() {
     });
 }
 
-// ===== DARK MODE =====
+// ===== DARK MODE - FIXED =====
 function initDarkMode() {
     const darkModeBtn = document.getElementById('darkModeBtn');
     const body = document.body;
@@ -170,7 +192,7 @@ function initDarkMode() {
     
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
         body.classList.add('dark-mode');
-        darkModeBtn.textContent = '️';
+        darkModeBtn.textContent = '☀️';
     } else {
         darkModeBtn.textContent = '🌙';
     }
@@ -178,7 +200,7 @@ function initDarkMode() {
     darkModeBtn.addEventListener('click', function() {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
-        darkModeBtn.textContent = isDark ? '️' : '🌙';
+        darkModeBtn.textContent = isDark ? '☀️' : '';
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         
         // Track event
