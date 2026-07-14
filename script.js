@@ -1,12 +1,11 @@
 /**
  * NURULBAYT - PROFESSIONAL JAVASCRIPT
- * Version: 4.0 (FINAL - ALL ISSUES FIXED)
+ * Version: 4.1 (Search Fixed)
  * Last Updated: July 2026
  */
 
 // ===== DOM CONTENT LOADED =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all modules
     initScrollToTop();
     initReadingProgress();
     initScrollReveal();
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initShareButtons();
     initPerformanceMonitoring();
     
-    // Scroll to top on page load
     setTimeout(() => window.scrollTo(0, 0), 100);
 });
 
@@ -74,15 +72,13 @@ function initReadingProgress() {
     });
 }
 
-// ===== SCROLL REVEAL - FIXED FOR ALL DEVICES =====
+// ===== SCROLL REVEAL =====
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
     if (!reveals.length) return;
     
-    // Check if device is mobile
     const isMobile = window.innerWidth <= 768;
     
-    // Mobile par directly sab show karein (NO animation)
     if (isMobile) {
         reveals.forEach(el => {
             el.classList.add('active');
@@ -90,10 +86,9 @@ function initScrollReveal() {
             el.style.visibility = 'visible';
             el.style.transform = 'none';
         });
-        return; // Exit early
+        return;
     }
     
-    // Desktop par animation ke saath reveal karein
     try {
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -112,7 +107,6 @@ function initScrollReveal() {
         
         reveals.forEach(el => revealObserver.observe(el));
     } catch (error) {
-        // Fallback for older browsers
         reveals.forEach(el => {
             el.classList.add('active');
             el.style.opacity = '1';
@@ -148,7 +142,6 @@ function initMobileMenu() {
     const navMenu = document.getElementById('navMenu');
     if (!menuBtn || !navMenu) return;
     
-    // Create overlay
     let overlay = document.querySelector('.nav-overlay');
     if (!overlay) {
         overlay = document.createElement('div');
@@ -167,26 +160,23 @@ function initMobileMenu() {
     menuBtn.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
     
-    // Close on escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && navMenu.classList.contains('open')) {
             toggleMenu();
         }
     });
     
-    // Close on link click
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', toggleMenu);
     });
 }
 
-// ===== DARK MODE - FIXED =====
+// ===== DARK MODE =====
 function initDarkMode() {
     const darkModeBtn = document.getElementById('darkModeBtn');
     const body = document.body;
     if (!darkModeBtn) return;
     
-    // Check saved preference or system preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     
@@ -200,10 +190,9 @@ function initDarkMode() {
     darkModeBtn.addEventListener('click', function() {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
-        darkModeBtn.textContent = isDark ? '☀️' : '';
+        darkModeBtn.textContent = isDark ? '☀️' : '🌙';
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         
-        // Track event
         if (typeof gtag !== 'undefined') {
             gtag('event', 'theme_change', {
                 'event_category': 'engagement',
@@ -212,7 +201,6 @@ function initDarkMode() {
         }
     });
     
-    // Listen for system changes
     if (window.matchMedia) {
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
             if (!localStorage.getItem('theme')) {
@@ -221,7 +209,7 @@ function initDarkMode() {
                     darkModeBtn.textContent = '☀️';
                 } else {
                     body.classList.remove('dark-mode');
-                    darkModeBtn.textContent = '🌙';
+                    darkModeBtn.textContent = '';
                 }
             }
         });
@@ -283,66 +271,41 @@ function initFAQ() {
     });
 }
 
-// ===== SEARCH FUNCTIONALITY =====
+// ===== SEARCH FUNCTIONALITY - FIXED =====
 function initSearch() {
     const searchInput = document.getElementById('searchInput');
+    const articlesGrid = document.querySelector('.articles-grid');
     const noResults = document.getElementById('noResults');
-    if (!searchInput) return;
     
-    const debounce = function(func, wait) {
-        let timeout;
-        return function executedFunction() {
-            const args = arguments;
-            const later = function() {
-                clearTimeout(timeout);
-                func.apply(null, args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    };
+    if (!searchInput || !articlesGrid) return;
     
-    const handleSearch = debounce(function(query) {
-        query = query.toLowerCase().trim();
-        const cards = document.querySelectorAll('.article-card');
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        const articles = articlesGrid.querySelectorAll('.article-card');
         let visibleCount = 0;
         
-        cards.forEach(function(card) {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const desc = card.querySelector('p').textContent.toLowerCase();
-            const category = card.querySelector('.article-category') ? 
-                card.querySelector('.article-category').textContent.toLowerCase() : '';
+        articles.forEach(function(article) {
+            const title = article.querySelector('h3').textContent.toLowerCase();
+            const description = article.querySelector('p').textContent.toLowerCase();
+            const category = article.querySelector('.article-category') ? 
+                article.querySelector('.article-category').textContent.toLowerCase() : '';
             
-            const matches = title.includes(query) || desc.includes(query) || category.includes(query);
-            
-            if (matches) {
-                card.style.display = 'block';
-                if (query) {
-                    card.style.transform = 'scale(1.02)';
-                    setTimeout(() => card.style.transform = '', 300);
-                }
+            if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                article.style.display = 'block';
                 visibleCount++;
             } else {
-                card.style.display = 'none';
+                article.style.display = 'none';
             }
         });
         
         if (noResults) {
-            noResults.style.display = visibleCount === 0 && query ? 'block' : 'none';
+            if (searchTerm && visibleCount === 0) {
+                noResults.style.display = 'block';
+                noResults.textContent = 'No articles found. Try a different search term.';
+            } else {
+                noResults.style.display = 'none';
+            }
         }
-        
-        // Track search
-        if (query && typeof gtag !== 'undefined') {
-            gtag('event', 'search', {
-                'event_category': 'engagement',
-                'event_label': query,
-                'value': visibleCount
-            });
-        }
-    }, 300);
-    
-    searchInput.addEventListener('input', function(e) {
-        handleSearch(e.target.value);
     });
 }
 
@@ -367,60 +330,32 @@ function initSmoothScroll() {
 
 // ===== SHARE BUTTONS =====
 function initShareButtons() {
-    // WhatsApp
     const whatsappBtn = document.querySelector('.share-btn.whatsapp');
     if (whatsappBtn) {
         whatsappBtn.addEventListener('click', function() {
             const url = encodeURIComponent(window.location.href);
             const title = encodeURIComponent(document.title);
             window.open('https://wa.me/?text=' + title + '%20' + url, '_blank', 'width=600,height=600');
-            
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'share', {
-                    'method': 'whatsapp',
-                    'content_type': 'article',
-                    'item_id': window.location.pathname
-                });
-            }
         });
     }
     
-    // Facebook
     const facebookBtn = document.querySelector('.share-btn.facebook');
     if (facebookBtn) {
         facebookBtn.addEventListener('click', function() {
             const url = encodeURIComponent(window.location.href);
             window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank', 'width=600,height=400');
-            
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'share', {
-                    'method': 'facebook',
-                    'content_type': 'article',
-                    'item_id': window.location.pathname
-                });
-            }
         });
     }
     
-    // Twitter
     const twitterBtn = document.querySelector('.share-btn.twitter');
     if (twitterBtn) {
         twitterBtn.addEventListener('click', function() {
             const url = encodeURIComponent(window.location.href);
             const title = encodeURIComponent(document.title);
             window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'width=600,height=400');
-            
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'share', {
-                    'method': 'twitter',
-                    'content_type': 'article',
-                    'item_id': window.location.pathname
-                });
-            }
         });
     }
     
-    // Copy Link
     const copyBtn = document.querySelector('.share-btn.copy');
     if (copyBtn) {
         copyBtn.addEventListener('click', async function() {
@@ -444,7 +379,6 @@ function initShareButtons() {
                 }, 2000);
                 
             } catch (err) {
-                // Fallback
                 const textArea = document.createElement('textarea');
                 textArea.value = url;
                 document.body.appendChild(textArea);
@@ -452,21 +386,12 @@ function initShareButtons() {
                 document.execCommand('copy');
                 document.body.removeChild(textArea);
             }
-            
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'share', {
-                    'method': 'copy_link',
-                    'content_type': 'article',
-                    'item_id': window.location.pathname
-                });
-            }
         });
     }
 }
 
 // ===== PERFORMANCE MONITORING =====
 function initPerformanceMonitoring() {
-    // Page load time
     window.addEventListener('load', function() {
         const loadTime = performance.now();
         console.log('🚀 Page loaded in ' + Math.round(loadTime) + 'ms');
@@ -478,13 +403,8 @@ function initPerformanceMonitoring() {
                 'value': Math.round(loadTime)
             });
         }
-        
-        if (loadTime > 3000) {
-            console.warn('⚠️ Page load time is slow (>3s)');
-        }
     });
     
-    // Scroll depth tracking
     let maxScroll = 0;
     let scrollTracked = { 25: false, 50: false, 75: false, 100: false };
     
@@ -511,16 +431,8 @@ function initPerformanceMonitoring() {
         }
     });
     
-    // Error tracking
     window.addEventListener('error', function(e) {
         console.error('Global error:', e.error);
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'exception', {
-                'description': e.error.toString(),
-                'fatal': false
-            });
-        }
     });
 }
 
