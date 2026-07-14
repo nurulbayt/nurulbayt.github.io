@@ -1,6 +1,6 @@
 /* ============================================
    NURULBAYT - PROFESSIONAL STYLESHEET
-   Version: 4.0 (FINAL - ALL ISSUES FIXED)
+   Version: 4.1 (Dark Mode Fixed)
    Last Updated: July 2026
    ============================================ */
 
@@ -34,10 +34,10 @@
 body.dark-mode {
     --cream: #0a0a0a;
     --text: #f0f0f0;
-    --gray: #aaa;
+    --gray: #ccc;
     --white: #1a1a1a;
     --shadow: 0 20px 60px rgba(0,0,0,.4);
-    --green-primary: #4ade80;
+    --green-primary: #f7e7b6; /* CHANGED: Green to Golden for dark mode */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -132,7 +132,6 @@ body.dark-mode .glass {
     border-color: rgba(255,255,255,.04);
 }
 
-/* ===== REVEAL ANIMATION - DISABLED ON MOBILE ===== */
 .reveal {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -477,6 +476,11 @@ section { padding: var(--section-padding); }
     font-size: 1rem;
 }
 
+/* DARK MODE: Section headings ko golden karein */
+body.dark-mode .section-title h2 {
+    color: var(--gold-light);
+}
+
 .topics-row {
     display: flex;
     flex-wrap: wrap;
@@ -486,10 +490,17 @@ section { padding: var(--section-padding); }
 }
 
 .topics-section .badge-item {
-    color: var(--green-primary);
-    background: rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     font-weight: 600;
+}
+
+/* DARK MODE: Topics badges ko bright golden karein */
+body.dark-mode .topics-section .badge-item {
+    color: var(--gold-light);
+    background: rgba(247, 231, 182, 0.1);
+    border: 1px solid rgba(247, 231, 182, 0.3);
 }
 
 .topics-section .badge-item:hover {
@@ -593,6 +604,11 @@ section { padding: var(--section-padding); }
     color: var(--green-dark);
 }
 
+/* DARK MODE: Article headings ko golden karein */
+body.dark-mode .article-content h3 {
+    color: var(--gold-light);
+}
+
 .article-content p {
     color: var(--gray);
     font-size: .95rem;
@@ -612,6 +628,9 @@ section { padding: var(--section-padding); }
 .no-results {
     text-align: center;
     padding: 60px 20px;
+    display: none;
+    color: var(--gray);
+    font-size: 1.1rem;
 }
 
 .stats-grid {
@@ -926,6 +945,12 @@ section { padding: var(--section-padding); }
     margin: 30px 0 15px;
 }
 
+/* DARK MODE: Article body headings ko golden karein */
+body.dark-mode .article-body h2,
+body.dark-mode .article-body h3 {
+    color: var(--gold-light);
+}
+
 .article-body p { margin-bottom: 20px; }
 
 .article-body ul {
@@ -945,7 +970,6 @@ section { padding: var(--section-padding); }
     display: block;
 }
 
-/* ===== TABLE OF CONTENTS - FIXED ===== */
 .toc {
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(212,175,55,.15);
