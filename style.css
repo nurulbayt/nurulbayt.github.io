@@ -1,6 +1,6 @@
 /* ============================================
    NURULBAYT - PROFESSIONAL STYLESHEET
-   Version: 3.0 (FINAL - Mobile Fixed)
+   Version: 4.0 (FINAL - ALL ISSUES FIXED)
    Last Updated: July 2026
    ============================================ */
 
@@ -132,51 +132,24 @@ body.dark-mode .glass {
     border-color: rgba(255,255,255,.04);
 }
 
+/* ===== REVEAL ANIMATION - DISABLED ON MOBILE ===== */
 .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: .8s ease;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== MOBILE FIX - Force Content Visibility ===== */
-@media (max-width: 768px) {
+@media (min-width: 769px) {
     .reveal {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        display: block !important;
-        visibility: visible !important;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: .8s ease;
     }
     
-    .article-body,
-    .article-body > *,
-    .article-body section,
-    .article-body p,
-    .article-body h2,
-    .article-body h3,
-    .article-body ul,
-    .article-body li,
-    .article-body img,
-    .article-body .toc,
-    .article-body .tip-box,
-    .article-body .dua-box,
-    .article-body .key-takeaways,
-    .article-body .faq-item,
-    .article-body .share-section,
-    .article-body .author-bio,
-    .article-body .related-grid,
-    .article-body .internal-link-box,
-    .article-body .final-thoughts,
-    .article-body .cta-box {
-        opacity: 1 !important;
-        visibility: visible !important;
-        display: block !important;
-        max-height: none !important;
-        overflow: visible !important;
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -1022,7 +995,6 @@ section { padding: var(--section-padding); }
     padding-left: 5px;
 }
 
-/* Mobile TOC Fix */
 @media (max-width: 768px) {
     .toc {
         position: relative !important;
