@@ -1,143 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Homepage -->
-  <url>
-    <loc>https://nurulbayt.github.io/</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Main Articles (All 13) -->
-  <url>
-    <loc>https://nurulbayt.github.io/raise-children-who-love-allah.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+<?xml-stylesheet type="text/xsl" href="/download/527bbbdd9-37a2424a2/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://nurulbayt.github.io/teach-salah-to-children.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/</loc>
+       <lastmod>2026-07-18T06:08:17+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>1.0000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/screen-time-rules-muslim-families.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/about-us.html</loc>
+       <lastmod>2026-07-18T06:08:17+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/daily-habits-righteous-muslim-children.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/contact-us.html</loc>
+       <lastmod>2026-07-18T06:08:17+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/islamic-environment-at-home.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/teaching-99-names-of-allah-children.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/quran-learning-enjoyable-kids.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/teach-salah-to-children.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/how-to-talk-to-kids-about-allah.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/islamic-bedtime-routine-toddlers.html</loc>
+       <lastmod>2026-07-12T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/building-confidence-muslim-children.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/building-confidence-muslim-children.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/peer-pressure-muslim-kids.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/peer-pressure-muslim-kids.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/islamic-discipline-techniques-children.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/screen-time-rules-muslim-families.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/teaching-99-names-of-allah-children.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/make-dua-fun-for-kids.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/make-dua-fun-for-kids.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/islamic-environment-at-home.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/raise-muslim-child-non-muslim-society.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://nurulbayt.github.io/explain-death-to-muslim-child.html</loc>
+       <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
-  <!-- Other Pages -->
   <url>
-    <loc>https://nurulbayt.github.io/about-us.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+       <loc>https://nurulbayt.github.io/raise-children-who-love-allah.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/contact-us.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+       <loc>https://nurulbayt.github.io/daily-habits-righteous-muslim-children.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/privacy-policy.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+       <loc>https://nurulbayt.github.io/quran-learning-enjoyable-kids.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/terms-and-conditions.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+       <loc>https://nurulbayt.github.io/how-to-talk-to-kids-about-allah.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
   <url>
-    <loc>https://nurulbayt.github.io/disclaimer.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+       <loc>https://nurulbayt.github.io/islamic-discipline-techniques-children.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
   </url>
-
+  <url>
+       <loc>https://nurulbayt.github.io/raise-muslim-child-non-muslim-society.html</loc>
+       <lastmod>2026-07-10T00:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://nurulbayt.github.io/privacy-policy.html</loc>
+       <lastmod>2026-07-18T06:08:17+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://nurulbayt.github.io/terms-and-conditions.html</loc>
+       <lastmod>2026-07-18T06:08:17+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://nurulbayt.github.io/disclaimer.html</loc>
+       <lastmod>2026-07-18T06:08:17+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
 </urlset>
