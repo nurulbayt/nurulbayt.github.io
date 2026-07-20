@@ -1328,3 +1328,8 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
     opacity: 0.6;
     pointer-events: none;
 }
+
+/* Fix for Search No Results */
+#noResults, .no-results {
+    display: none !important;
+}
